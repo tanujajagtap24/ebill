@@ -10,8 +10,8 @@
         <div class="row mb-2">
           <div class="col-12">
             <div class="d-flex justify-content-between">
-                <h1> Tax Management </h1>
-                <a href="/admin/tax/create" class="btn btn-success"> Add Tax</a>
+                <h1> Unit Management </h1>
+                <a href="/admin/unit/create" class="btn btn-success"> Add Unit</a>
             </div>
             <div class="pt-5">
               @if (session("success"))
@@ -40,18 +40,18 @@
              <table class="table text-center table-striped">
                 <thead>
                   <th>#</th>
-                  <th>Tax Percentage (%)</th>
+                  <th>Unit Name</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
-                  @foreach ($taxData as $data)
+                  @foreach ($UnitData as $data)
                   <tr>
                     <td> {{ $loop->iteration }} </td>
-                    <td> {{ $data->Tax_Percentage }} </td>
+                    <td> {{ $data->Unit_Name }} </td>
                     <td>
-                      <a class="btn btn-primary" href="/admin/tax/view/{{ $data->id }}"> View </a>
-                      <a class="btn btn-secondary" href="/admin/tax/edit/{{ $data->id }}"> Edit </a>
-                      <a class="btn btn-danger" href="/admin/tax/delete/{{ $data->id }}"> Delete </a>
+                      <a class="btn btn-primary" href="/admin/unit/view/{{ $data->id }}"> View </a>
+                      <a class="btn btn-secondary" href="/admin/unit/edit/{{ $data->id }}"> Edit </a>
+                      <a class="btn btn-danger" href="/admin/unit/delete/{{ $data->id }}"> Delete </a>
                     </td>               
                   </tr>
                   @endforeach

@@ -11,7 +11,7 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-between">
                         <h1> Edit Tax</h1>
-                        <a href="/admin/ctax/list" class="btn btn-success"> Tax List</a>
+                        <a href="/admin/tax/list" class="btn btn-success"> Tax List</a>
                     </div>
 
                 </div>

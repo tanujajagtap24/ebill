@@ -7,6 +7,7 @@ use App\Http\Controllers\Contact_Controller;
 use App\Http\Controllers\Frontcontroller;
 use App\Http\Controllers\Group_Controller;
 use App\Http\Controllers\Tax_Controller;
+use App\Http\Controllers\Unit_Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,3 +60,12 @@ Route::get('admin/tax/delete/{id}',[Tax_Controller::class,'Destroy']);
 Route::get('admin/tax/view/{id}',[Tax_Controller::class,'View']);
 Route::get('admin/tax/edit/{id}',[Tax_Controller::class,'Edit']);
 Route::post('admin/tax/update/',[Tax_Controller::class,'Update']);
+
+//unit CRUD (Admin)
+Route::get('/admin/unit/create',[Unit_Controller::class,'Create']);
+Route::get('/admin/unit/list',[Unit_Controller::class,'List']);
+Route::post('/admin/unit/store',[Unit_Controller::class,'Store']);
+Route::get('admin/unit/delete/{id}',[Unit_Controller::class,'Destroy']);
+Route::get('admin/unit/view/{id}',[Unit_Controller::class,'View']);
+Route::get('admin/unit/edit/{id}',[Unit_Controller::class,'Edit']);
+Route::post('admin/unit/update',[Unit_Controller::class,'Update']);

@@ -47,7 +47,7 @@
               <div class="card-footer text-center">
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button type="reset" class="btn btn-primary">Reset</button>
-                <a href="/admin/tax/list" class="btn btn-secondary"> Back</a>
+                <a href="/admin/unit/list" class="btn btn-secondary"> Back</a>
               </div>
             </form>
           </div>

@@ -19,17 +19,17 @@
           <div class="col-lg-6">
             <div class="card shadow-lg text-center">
               <div class="card-header">
-                <h1> <b>Tax</b> </h1>
+                <h1> <b>Unit</b> </h1>
               </div>
               <div class="card-body">
               <table class="table table-striped">
                 <tr>
-                  <td>  <b> {{ $viewData->Tax_Name }} </b> </td>
+                  <td>  <b> {{ $viewData->Unit_Name }} </b> </td>
                 </tr>
              </table>
               </div>
               <div class="card-footer">
-              <a href="/admin/tax/list" class="btn btn-secondary"> Back</a>
+              <a href="/admin/unit/list" class="btn btn-secondary"> Back</a>
               </div>
              
             </div>
