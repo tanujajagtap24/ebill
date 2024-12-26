@@ -11,7 +11,7 @@
           <div class="col-12">
             <div class="d-flex justify-content-between">
                 <h1> Product Management </h1>
-                <a href="/admin/customer/create" class="btn btn-success"> Add Customer</a>
+                <a href="/admin/product/create" class="btn btn-success"> Add Product</a>
             </div>
           </div>
         </div>
