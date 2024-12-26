@@ -41,7 +41,7 @@
                     <div class="col-lg-4">
                       <label for="">Category</label>
                       <select name="product_cat" id="product_cat" class="form-control">
-                        <option value=""> Select Group  </option>
+                        <option value=""> Select Category  </option>
                         @foreach ($catData as $data)
                           <option value="{{ $data->Category_Name }}">  {{ $data->Category_Name }}  </option>
                         @endforeach
