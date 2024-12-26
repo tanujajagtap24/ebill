@@ -36,8 +36,8 @@
                 <div class="form-group">
                   <div class="row">
                     <div class="col-lg-12">
-                      <label for="">Unit Name</label>
-                      <input type="text" class="form-control" id="unit_name" name="unit_name">
+                      <label for=""> Tax Percentage</label>
+                      <input type="text" class="form-control" id="tax_percent" name="tax_percent">
                     </div>
                   </div>
                 </div>
@@ -47,7 +47,7 @@
               <div class="card-footer text-center">
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button type="reset" class="btn btn-primary">Reset</button>
-                <a href="/admin/unit/list" class="btn btn-secondary"> Back</a>
+                <a href="/admin/tax/list" class="btn btn-secondary"> Back</a>
               </div>
             </form>
           </div>
