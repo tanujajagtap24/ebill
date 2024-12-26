@@ -13,6 +13,14 @@
                 <h1> Product Management </h1>
                 <a href="/admin/product/create" class="btn btn-success"> Add Product</a>
             </div>
+            <div class="pt-5">
+              @if (session("success"))
+              <div class="d-flex justify-content-between alert alert-success" role="alert">
+                {{ session("success")}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="close"><span> &times;</span></button>
+              </div>
+              @endif
+            </div>
           </div>
         </div>
       </div><!-- /.container-fluid -->
