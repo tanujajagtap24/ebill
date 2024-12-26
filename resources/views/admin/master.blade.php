@@ -221,8 +221,14 @@
               Unit
               </p>
             </a>
+            <a href="/admin/customer/list" class="nav-link">
+              <i class="nav-icon fas fa-address-book"></i>
+              <p>
+              Customer
+              </p>
+            </a>
           </li>
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -695,7 +701,7 @@
               <i class="nav-icon far fa-circle text-info"></i>
               <p>Informational</p>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

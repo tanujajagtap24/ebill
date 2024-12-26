@@ -4,8 +4,10 @@ use App\Http\Controllers\Backcontroller;
 use App\Http\Controllers\Category_Controller;
 use App\Http\Controllers\City_Controller;
 use App\Http\Controllers\Contact_Controller;
+use App\Http\Controllers\Customer_Controller;
 use App\Http\Controllers\Frontcontroller;
 use App\Http\Controllers\Group_Controller;
+use App\Http\Controllers\Product_Controller;
 use App\Http\Controllers\Tax_Controller;
 use App\Http\Controllers\Unit_Controller;
 use Illuminate\Support\Facades\Route;
@@ -69,3 +71,21 @@ Route::get('admin/unit/delete/{id}',[Unit_Controller::class,'Destroy']);
 Route::get('admin/unit/view/{id}',[Unit_Controller::class,'View']);
 Route::get('admin/unit/edit/{id}',[Unit_Controller::class,'Edit']);
 Route::post('admin/unit/update',[Unit_Controller::class,'Update']);
+
+//customer CRUD (Admin)
+Route::get('/admin/customer/create',[Customer_Controller::class,'Create']);
+Route::get('/admin/customer/list',[Customer_Controller::class,'List']);
+Route::post('/admin/customer/store',[Customer_Controller::class,'Store']);
+Route::get('admin/customer/delete/{id}',[Customer_Controller::class,'Destroy']);
+Route::get('admin/customer/view/{id}',[Customer_Controller::class,'View']);
+Route::get('admin/customer/edit/{id}',[Customer_Controller::class,'Edit']);
+Route::post('admin/customer/update',[Customer_Controller::class,'Update']);
+
+//product CRUD (Admin)
+Route::get('/admin/product/create',[Product_Controller::class,'Create']);
+Route::get('/admin/product/list',[Product_Controller::class,'List']);
+Route::post('/admin/product/store',[Product_Controller::class,'Store']);
+Route::get('admin/product/delete/{id}',[Product_Controller::class,'Destroy']);
+Route::get('admin/product/view/{id}',[Product_Controller::class,'View']);
+Route::get('admin/product/edit/{id}',[Product_Controller::class,'Edit']);
+Route::post('admin/product/update',[Product_Controller::class,'Update']);
