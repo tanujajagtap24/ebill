@@ -60,7 +60,7 @@ class Product_Controller extends Controller
         $editData = product::find($id);
         $catData = category::all();
         $taxData = tax::all();
-        return view('admin\product\create', compact('catData', 'taxData','editData')); 
+        return view('admin\product\edit', compact('catData', 'taxData', 'editData')); 
     }
 
     function Update(Request $request)
