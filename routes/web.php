@@ -81,6 +81,10 @@ Route::get('admin/customer/view/{id}',[Customer_Controller::class,'View']);
 Route::get('admin/customer/edit/{id}',[Customer_Controller::class,'Edit']);
 Route::post('admin/customer/update',[Customer_Controller::class,'Update']);
 
+
+
+
+
 //product CRUD (Admin)
 Route::get('/admin/product/create',[Product_Controller::class,'Create']);
 Route::get('/admin/product/list',[Product_Controller::class,'List']);
