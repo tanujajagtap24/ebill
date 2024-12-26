@@ -10,12 +10,10 @@
         <div class="row mb-2">
           <div class="col-12">
             <div class="d-flex justify-content-between">
-                <h1> Customer Management </h1>
+                <h1> Product Management </h1>
                 <a href="/admin/customer/create" class="btn btn-success"> Add Customer</a>
             </div>
-
           </div>
-         
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -32,28 +30,30 @@
              <table class="table table-striped">
                 <thead>
                   <th>#</th>
-                  <th>Customer Name</th>
-                  <th>Mobile</th>
-                  <th>Email</th>
-                  <th>City</th>
-                  <th>Pincode</th>
-                  <th>Customer Group</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Quantity</th>
+                  <th>Rate</th>
+                  <th>Discount %</th>
+                  <th>Tax %</th>
+                  <th>Final Value</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
                   @foreach ($CustomerData as $data)
                   <tr>
                     <td> {{ $loop->iteration }} </td>
-                    <td> {{ $data->Customer_Name }} </td>
-                    <td> {{ $data->Mobile_Number }} </td>   
-                    <td> {{ $data->Email }} </td>     
-                    <td> {{ $data->City }} </td> 
-                    <td> {{ $data->Pincode }} </td>       
-                    <td> {{ $data->Group }} </td>         
+                    <td> {{ $data->Product_Name }} </td>
+                    <td> {{ $data->Product_Category }} </td>   
+                    <td> {{ $data->Quantity }} </td>     
+                    <td> {{ $data->Rate }} </td> 
+                    <td> {{ $data->Dis_Percent }} </td>       
+                    <td> {{ $data->Tax_Percent }} </td>  
+                    <td> {{ $data->Final_Value }} </td>                
                     <td>
-                      <a class="btn btn-primary" href="/admin/customer/view/{{ $data->id }}"> View </a>
-                      <a class="btn btn-secondary" href="/admin/customer/edit/{{ $data->id }}"> Edit </a>
-                      <a class="btn btn-danger" href="/admin/customer/delete/{{ $data->id }}"> Delete </a>
+                      <a class="btn btn-primary" href="/admin/product/view/{{ $data->id }}"> View </a>
+                      <a class="btn btn-secondary" href="/admin/product/edit/{{ $data->id }}"> Edit </a>
+                      <a class="btn btn-danger" href="/admin/product/delete/{{ $data->id }}"> Delete </a>
                     </td>               
                   </tr>
                   @endforeach
