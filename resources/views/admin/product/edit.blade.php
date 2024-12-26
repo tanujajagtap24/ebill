@@ -65,11 +65,11 @@
                     <div class="row pt-3">
                       <div class="col-lg-3">
                         <label for="">Discount %</label>
-                        <input type="text" class="form-control" id="dis_percent" name="dis_percent" value="Dis_Percent">
+                        <input type="text" class="form-control" id="dis_percent" name="dis_percent" value="{{$editData->Dis_Percent}}">
                       </div>
                       <div class="col-lg-3">
                         <label for="">Discount Value</label>
-                        <input type="text" class="form-control" id="dis_value" name="dis_value" value="Dis_Value">
+                        <input type="text" class="form-control" id="dis_value" name="dis_value" value="{{ $editData->Dis_Value }}">
                       </div>
                       <div class="col-lg-3">
                         <label for="">Tax %</label>
@@ -82,12 +82,15 @@
                       </div>
                       <div class="col-lg-3">
                         <label for="">Final Value</label>
-                        <input type="text" class="form-control" id="fin_value" name="fin_value" value="Final_Value">
+                        <input type="text" class="form-control" id="fin_value" name="fin_value" value="{{ $editData->Final_Value }}">
                       </div>
                     </div>
                   </div>
               </div>
               <!-- /.card-body -->
+
+
+
                     <div class="card-footer text-center">
                         <button type="submit" class="btn btn-success">Update</button>
                         <button type="reset" class="btn btn-primary">Reset</button>
