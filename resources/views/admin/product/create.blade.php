@@ -74,7 +74,7 @@
                     <div class="col-lg-3">
                       <label for="">Tax %</label>
                       <select name="tax_percent" id="tax_percent" class="form-control">
-                        <option value=""> Select Group  </option>
+                        <option value=""> Select Tax Percentage  </option>
                         @foreach ($taxData as $data)
                           <option value="{{ $data->Tax_Percentage }}">  {{ $data->Tax_Percentage }}  </option>
                         @endforeach

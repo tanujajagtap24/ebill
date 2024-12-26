@@ -40,7 +40,7 @@
                   <th>Action</th>
                 </thead>
                 <tbody>
-                  @foreach ($CustomerData as $data)
+                  @foreach ($productData as $data)
                   <tr>
                     <td> {{ $loop->iteration }} </td>
                     <td> {{ $data->Product_Name }} </td>
