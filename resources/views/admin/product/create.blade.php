@@ -134,16 +134,5 @@
     // Calculate Final Amount
     var final = amount + tax_value;
     document.getElementById('fin_value').value = final;
-
-
-
-
-
-
-
-
-
-
-
   }
 </script>

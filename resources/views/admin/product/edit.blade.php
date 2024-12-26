@@ -51,29 +51,29 @@
                     <div class="row pt-3">
                       <div class="col-lg-4">
                         <label for="">Quantity</label>
-                        <input type="text" class="form-control" id="qty" name="qty" value="{{ $editData->Quantity }}">
+                        <input type="text" class="form-control" id="qty" name="qty" value="{{ $editData->Quantity }}" oninput="Final()">
                       </div>
                       <div class="col-lg-4">
                         <label for="">Rate</label>
-                        <input type="text" class="form-control" id="rate" name="rate" value="{{ $editData->Rate }}">
+                        <input type="text" class="form-control" id="rate" name="rate" value="{{ $editData->Rate }}" oninput="Final()">
                       </div>
                       <div class="col-lg-4">
                         <label for="">Total</label>
-                        <input type="text" class="form-control" id="total" name="total" value="{{ $editData->Total }}">
+                        <input type="text" class="form-control" id="total" name="total" value="{{ $editData->Total }}" readonly oninput="Final()">
                       </div>
                     </div>
                     <div class="row pt-3">
                       <div class="col-lg-3">
                         <label for="">Discount %</label>
-                        <input type="text" class="form-control" id="dis_percent" name="dis_percent" value="{{$editData->Dis_Percent}}">
+                        <input type="text" class="form-control" id="dis_percent" name="dis_percent" value="{{$editData->Dis_Percent}}" oninput="Final()">
                       </div>
                       <div class="col-lg-3">
                         <label for="">Discount Value</label>
-                        <input type="text" class="form-control" id="dis_value" name="dis_value" value="{{ $editData->Dis_Value }}">
+                        <input type="text" class="form-control" id="dis_value" name="dis_value" value="{{ $editData->Dis_Value }}" readonly>
                       </div>
                       <div class="col-lg-3">
                         <label for="">Tax %</label>
-                        <select name="tax_percent" id="tax_percent" class="form-control">
+                        <select name="tax_percent" id="tax_percent" class="form-control" oninput="Final()">
                           <option value="{{ $editData->Tax_Percent }}"> {{ $editData->Tax_Percent }} </option>
                           @foreach ($taxData as $data)
                             <option value="{{ $data->Tax_Percentage }}">  {{ $data->Tax_Percentage }}  </option>
@@ -82,7 +82,7 @@
                       </div>
                       <div class="col-lg-3">
                         <label for="">Final Value</label>
-                        <input type="text" class="form-control" id="fin_value" name="fin_value" value="{{ $editData->Final_Value }}">
+                        <input type="text" class="form-control" id="fin_value" name="fin_value" value="{{ $editData->Final_Value }}" readonly>
                       </div>
                     </div>
                   </div>
@@ -107,3 +107,32 @@
 </div>
 <!-- /.content-wrapper -->
 @endsection
+
+<script>
+  function Final()
+  {
+    var rate = parseFloat(document.getElementById('rate').value);
+    var quantity = parseFloat(document.getElementById('qty').value);
+
+    // Calculate Total
+    var Total = rate * quantity;
+    document.getElementById('total').value = Total;
+
+    var percent = parseFloat(document.getElementById('dis_percent').value);
+
+    // Calculate Discount Value
+    var discount_value = (percent / 100) * Total;
+    document.getElementById('dis_value').value = discount_value;
+
+    // Value After Applying Discount
+    var amount = Total - discount_value;
+
+    // Calculate Tax Value
+    var tax_per = parseFloat(document.getElementById('tax_percent').value);
+    var tax_value = (tax_per / 100) * amount;
+
+    // Calculate Final Amount
+    var final = amount + tax_value;
+    document.getElementById('fin_value').value = final;
+  }
+</script>
