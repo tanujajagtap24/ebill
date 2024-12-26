@@ -19,44 +19,52 @@
           <div class="col-lg-6">
             <div class="card shadow-lg text-center">
               <div class="card-header">
-                <h1> <b>Customer Information</b> </h1>
+                <h1> <b>Product Information</b> </h1>
               </div>
               <div class="card-body">
               <table class="table table-striped">
                 <tbody>
                   <tr>
-                  <th>Customer Name</th>
-                  <td> {{ $viewData->Customer_Name }} </td>
+                  <th>Product Name</th>
+                  <td> {{ $viewData->Product_Name }} </td>
                   </tr>
                   <tr>
-                    <th>Mobile</th>
-                    <td> {{ $viewData->Mobile_Number }} </td>
+                    <th>Category</th>
+                    <td> {{ $viewData->Product_Category }} </td>
                   </tr>
                   <tr>
-                    <th>Email</th>
-                    <td> {{ $viewData->Email }} </td>
+                    <th>Quantity</th>
+                    <td> {{ $viewData->Quantity }} </td>
                   </tr>
                   <tr>
-                    <th>City</th>
-                    <td> {{ $viewData->City }} </td> 
+                    <th>Rate</th>
+                    <td> {{ $viewData->Rate }} </td> 
                   </tr>
                   <tr>
-                    <th>Pincode</th>
-                    <td> {{ $viewData->Pincode }} </td>       
+                    <th>Total</th>
+                    <td> {{ $viewData->Total }} </td>       
                   </tr>
                   <tr>
-                    <th>Address</th>
-                    <td> {{ $viewData->Address }} </td>
+                    <th>Discount %</th>
+                    <td> {{ $viewData->Dis_Percent }} </td>
                   </tr>
                   <tr>
-                    <th>Customer Group</th>
-                    <td> {{ $viewData->Group }} </td>  
+                    <th>Discount Value</th>
+                    <td> {{ $viewData->Dis_Value }} </td>  
+                  </tr>
+                  <tr>
+                    <th>  Tax %</th>
+                    <td> {{ $viewData->Tax_Percent }} </td>  
+                  </tr>
+                  <tr>
+                    <th>Final Value</th>
+                    <td> {{ $viewData->Final_Value }} </td>  
                   </tr>
                   </tbody>
              </table>
               </div>
               <div class="card-footer">
-              <a href="/admin/customer/list" class="btn btn-secondary"> Back</a>
+              <a href="/admin/product/list" class="btn btn-secondary"> Back</a>
               </div>
              
             </div>
