@@ -50,30 +50,30 @@
                   </div>
                   <div class="row pt-3">
                     <div class="col-lg-4">
-                      <label for="">Quantity</label>
-                      <input type="text" class="form-control" id="qty" name="qty">
+                      <label for="">Quantity</label> 
+                      <input type="text" class="form-control" id="qty" name="qty" oninput="Final()">
                     </div>
                     <div class="col-lg-4">
                       <label for="">Rate</label>
-                      <input type="text" class="form-control" id="rate" name="rate">
+                      <input type="text" class="form-control" id="rate" name="rate" oninput="Final()">
                     </div>
                     <div class="col-lg-4">
                       <label for="">Total</label>
-                      <input type="text" class="form-control" id="total" name="total">
+                      <input type="text" class="form-control" id="total" name="total" readonly>
                     </div>
                   </div>
                   <div class="row pt-3">
                     <div class="col-lg-3">
                       <label for="">Discount %</label>
-                      <input type="text" class="form-control" id="dis_percent" name="dis_percent">
+                      <input type="text" class="form-control" id="dis_percent" name="dis_percent" oninput="Final()">
                     </div>
                     <div class="col-lg-3">
                       <label for="">Discount Value</label>
-                      <input type="text" class="form-control" id="dis_value" name="dis_value">
+                      <input type="text" class="form-control" id="dis_value" name="dis_value" readonly>
                     </div>
                     <div class="col-lg-3">
                       <label for="">Tax %</label>
-                      <select name="tax_percent" id="tax_percent" class="form-control">
+                      <select name="tax_percent" id="tax_percent" class="form-control" oninput="Final()">
                         <option value=""> Select Tax Percentage  </option>
                         @foreach ($taxData as $data)
                           <option value="{{ $data->Tax_Percentage }}">  {{ $data->Tax_Percentage }}  </option>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-lg-3">
                       <label for="">Final Value</label>
-                      <input type="text" class="form-control" id="fin_value" name="fin_value">
+                      <input type="text" class="form-control" id="fin_value" name="fin_value" readonly>
                     </div>
                   </div>
                 </div>
