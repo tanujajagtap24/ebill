@@ -11,7 +11,7 @@
         <div class="col-12">
           <div class="d-flex justify-content-between">
             <h1> Create New Product</h1>
-            <a href="/admin/customer/list" class="btn btn-success"> Product List</a>
+            <a href="/admin/product/list" class="btn btn-success"> Product List</a>
           </div>
 
         </div>
@@ -29,7 +29,7 @@
           <!-- general form elements -->
           <div class="card">
             <!-- form start -->
-            <form action="/admin/customer/store" method="post">
+            <form action="/admin/product/store" method="post">
               @csrf
               <div class="card-body">
                 <div class="form-group">
