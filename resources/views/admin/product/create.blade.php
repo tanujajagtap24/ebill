@@ -107,3 +107,43 @@
 </div>
 <!-- /.content-wrapper -->
 @endsection
+
+<script>
+  function Final()
+  {
+    var rate = parseFloat(document.getElementById('rate').value);
+    var quantity = parseFloat(document.getElementById('qty').value);
+
+    // Calculate Total
+    var Total = rate * quantity;
+    document.getElementById('total').value = Total;
+
+    var percent = parseFloat(document.getElementById('dis_percent').value);
+
+    // Calculate Discount Value
+    var discount_value = (percent / 100) * Total;
+    document.getElementById('dis_value').value = discount_value;
+
+    // Value After Applying Discount
+    var amount = Total - discount_value;
+
+    // Calculate Tax Value
+    var tax_per = parseFloat(document.getElementById('tax_percent').value);
+    var tax_value = (tax_per / 100) * amount;
+
+    // Calculate Final Amount
+    var final = amount + tax_value;
+    document.getElementById('fin_value').value = final;
+
+
+
+
+
+
+
+
+
+
+
+  }
+</script>
