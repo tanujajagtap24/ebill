@@ -40,6 +40,7 @@
                                     <th>#</th>
                                     <th>Product Name</th>
                                     <th>Category</th>
+                                    <th>Brand</th>
                                     <th>Quantity</th>
                                     <th>Rate</th>
                                     <th>Discount %</th>
@@ -53,6 +54,7 @@
                                             <td> {{ $loop->iteration }} </td>
                                             <td> {{ $data->Product_Name }} </td>
                                             <td> {{ $data->Product_Category }} </td>
+                                            <td>{{ $data->Product_Brand }}</td>
                                             <td> {{ $data->Quantity }} </td>
                                             <td> {{ $data->Rate }} </td>
                                             <td> {{ $data->Dis_Percent }} </td>

@@ -14,7 +14,7 @@ class CreateTblProductTable extends Migration
     public function up()
     {
         Schema::create('tbl_product', function (Blueprint $table) {
-            $table->id();
+            $table->id(); 
             $table->string('Product_Name');
             $table->string('HSN_Code');
             $table->string('Product_Category');
@@ -31,6 +31,10 @@ class CreateTblProductTable extends Migration
             $table->string('Dis_Percent');
             $table->string('Dis_Value');
             $table->string('Final_Value');
+            $table->string('Mfg_Date');
+            $table->string('Exp_Date');
+
+
         });
     }
 
