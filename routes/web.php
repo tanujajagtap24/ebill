@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backcontroller;
+use App\Http\Controllers\Brand_Controller;
 use App\Http\Controllers\Category_Controller;
 use App\Http\Controllers\City_Controller;
 use App\Http\Controllers\Contact_Controller;
@@ -40,6 +41,15 @@ Route::get('/admin/category/delete/{id}', [Category_Controller::class, 'Destroy'
 Route::get('/admin/category/view/{id}', [Category_Controller::class, 'View']);
 Route::get('/admin/category/edit/{id}', [Category_Controller::class, 'Edit']);
 Route::post('/admin/category/update', [Category_Controller::class, 'Update']);
+
+//brand CRUD (Admin)
+Route::get('/admin/brand/create', [Brand_Controller::class, 'Create']);
+Route::get('/admin/brand/list', [Brand_Controller::class, 'List']);
+Route::post('/admin/brand/store', [Brand_Controller::class, 'Store']);
+Route::get('/admin/brand/delete/{id}', [Brand_Controller::class, 'Destroy']);
+Route::get('/admin/brand/view/{id}', [Brand_Controller::class, 'View']);
+Route::get('/admin/brand/edit/{id}', [Brand_Controller::class, 'Edit']);
+Route::post('/admin/brand/update', [Brand_Controller::class, 'Update']);
 
 //city CRUD (Admin)
 Route::get('/admin/city/create',[City_Controller::class,'Create']);
@@ -85,10 +95,6 @@ Route::get('admin/customer/delete/{id}',[Customer_Controller::class,'Destroy']);
 Route::get('admin/customer/view/{id}',[Customer_Controller::class,'View']);
 Route::get('admin/customer/edit/{id}',[Customer_Controller::class,'Edit']);
 Route::post('admin/customer/update',[Customer_Controller::class,'Update']);
-
-
-
-
 
 //product CRUD (Admin)
 Route::get('/admin/product/create',[Product_Controller::class,'Create']);
