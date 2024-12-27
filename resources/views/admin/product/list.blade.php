@@ -55,7 +55,17 @@
                                             <td> {{ $data->Product_Name }} </td>
                                             <td> {{ $data->Product_Category }} </td>
                                             <td>{{ $data->Product_Brand }}</td>
-                                            <td> {{ $data->Quantity }} </td>
+                                            <td>
+                                                <tr></tr>
+                                                <tr>
+                                                    <td> {{ $data->Quantity_1 }} </td>
+                                                    <td> {{ $data->Quantity_2 }} </td>
+                                                    <td> {{ $data->Quantity_3 }} </td>
+                                                    <td> {{ $data->Quantity_4 }} </td>
+                                                </tr>
+                                            </td>
+
+
                                             <td> {{ $data->Rate }} </td>
                                             <td> {{ $data->Dis_Percent }} </td>
                                             <td> {{ $data->Tax_Percent }} </td>
