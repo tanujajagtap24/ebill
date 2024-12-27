@@ -147,7 +147,7 @@
                     <td> <a href=""> Button </a> </td>
                   </tr>
                 </table>
-                <div class="float-right">
+                <div class="float-right pt-4">
                   <button type="submit" class="btn btn-success"><i class="nav-icon fas fa-save"> </i> Save</button>
                   <a href="/admin/product/list" class="btn btn-secondary"><i class="nav-icon fas fa-times "></i> Close</a>
                 </div>
