@@ -10,7 +10,7 @@
                     <div class="col-12">
                         <div class="d-flex justify-content-between">
                             <h1> Product Management </h1>
-                            <a href="/admin/product/create" class="btn btn-success"> Add Product</a>
+                            <a href="/admin/product/create" class="btn btn-success"> <i class="nav-icon fas fa-plus "></i> Add Product</a>
                         </div>
                         <div class="pt-5">
                             @if (session('success'))
