@@ -64,8 +64,8 @@
                       </div>
                       <select name="p_brand" id="p_brand" class="form-control">
                         <option value=""> Select Brand  </option>
-                        @foreach ($catData as $data)
-                          <option value="{{ $data->Category_Name }}">  {{ $data->Category_Name }}  </option>
+                        @foreach ($brandData as $data)
+                          <option value="{{ $data->Brand_Name }}">  {{ $data->Brand_Name }}  </option>
                         @endforeach
                       </select>                    
                     </div>
