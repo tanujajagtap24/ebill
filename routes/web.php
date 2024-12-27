@@ -27,6 +27,11 @@ Route::get('/admin-1', function () {
     return view('admin\master');
 });
 
+Route::get('/', function () {
+    return view('admin\dashboard');
+});
+
+
 //category CRUD (Admin)
 Route::get('/admin/category/create', [Category_Controller::class, 'Create']);
 Route::get('/admin/category/list', [Category_Controller::class, 'List']);

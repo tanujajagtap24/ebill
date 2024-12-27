@@ -31,7 +31,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Services</span>
-                <span class="info-box-number"> {{$Service_Count}} </span>
+                <span class="info-box-number">  </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -44,7 +44,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Contacts</span>
-                <span class="info-box-number"> {{$Contact_Count}} </span>
+                <span class="info-box-number">  </span>
               </div>
               <!-- /.info-box-content -->
             </div>
