@@ -41,7 +41,7 @@
                     <div class="col-lg-4">
                       <div class="d-flex justify-content-between">
                         <label for="">Category</label>
-                        <a href="/admin/product/create" class="btn btn-success"> <i class="nav-icon fas fa-plus "></i> </a>
+                        <a href="/admin/category/create" class="btn btn-success"> <i class="nav-icon fas fa-plus "></i> </a>
                       </div>
                       <select name="product_cat" id="product_cat" class="form-control">
                         <option value=""> Select Category  </option>
