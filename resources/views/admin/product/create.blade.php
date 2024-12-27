@@ -144,7 +144,7 @@
                     <td> <input type="text" class="form-control" id="fin_value" name="fin_value" readonly> </td>
                     <td> <input type="date" class="form-control" id="mfg" name="mfg"> </td>
                     <td> <input type="date" class="form-control" id="exp" name="exp"> </td>
-                    <td> <a href="#" class="btn btn-primary" onclick="copyRow(this)" ><i class="nav-icon fas fa-copy "></i> </a> </td>
+                    <td> <a href="#" class="btn btn-primary" ><i class="nav-icon fas fa-copy "></i> </a> </td>
                   </tr>
                   </tbody>
                 </table>
@@ -196,11 +196,4 @@
   }
 
 
-  function copyRow(button)
-  {
-    const row = button.parentElement.parentElement;
-    const newRow = row.cloneNode(true);
-    newRow.querySelectorAll('input').forEach(input => input.value = "");
-    document.querySelector('#dynamicTable tbody').appendChild(newRow);
-  }
 </script>
