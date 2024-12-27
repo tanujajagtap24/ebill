@@ -37,15 +37,49 @@ class Product_Controller extends Controller
     $add->Primary_Unit = $request->p_unit;
     $add->Alternate_Unit = $request->a_unit;
     $add->Conversion_Factor = $request->c_factor;
-    $add->Barcode = $request->barcode;
-    $add->Rate = $request->rate;
-    $add->Quantity = $request->qty;
-    $add->Total = $request->total;
-    $add->Dis_Percent = $request->dis_percent;
-    $add->Dis_Value = $request->dis_value;
-    $add->Final_Value = $request->fin_value;
-    $add->Mfg_Date = $request->mfg;
-    $add->Exp_Date = $request->exp;
+    $add->Barcode_1 = $request->barcode_1;
+    $add->Rate_1 = $request->rate_1;
+    $add->Quantity_1 = $request->qty_1;
+    $add->Total_1 = $request->total_1;
+    $add->Dis_Percent_1 = $request->dis_percent_1;
+    $add->Dis_Value_1 = $request->dis_value_1;
+    $add->Final_Value_1 = $request->fin_value_1;
+    $add->Mfg_Date_1 = $request->mfg_1;
+    $add->Exp_Date_1 = $request->exp_1;
+
+
+    $add->Barcode_2 = $request->barcode_2;
+    $add->Rate_2 = $request->rate_2;
+    $add->Quantity_2 = $request->qty_2;
+    $add->Total_2 = $request->total_2;
+    $add->Dis_Percent_2 = $request->dis_percent_2;
+    $add->Dis_Value_2 = $request->dis_value_2;
+    $add->Final_Value_2 = $request->fin_value_2;
+    $add->Mfg_Date_2 = $request->mfg_2;
+    $add->Exp_Date_2 = $request->exp_2;
+
+    $add->Barcode_3 = $request->barcode_3;
+    $add->Rate_3 = $request->rate_3;
+    $add->Quantity_3 = $request->qty_3;
+    $add->Total_3 = $request->total_3;
+    $add->Dis_Percent_3 = $request->dis_percent_3;
+    $add->Dis_Value_3 = $request->dis_value_3;
+    $add->Final_Value_3 = $request->fin_value_3;
+    $add->Mfg_Date_3 = $request->mfg_3;
+    $add->Exp_Date_3 = $request->exp_3;
+
+    $add->Barcode_4 = $request->barcode_4;
+    $add->Rate_4 = $request->rate_4;
+    $add->Quantity_4 = $request->qty_4;
+    $add->Total_4 = $request->total_4;
+    $add->Dis_Percent_4 = $request->dis_percent_4;
+    $add->Dis_Value_4 = $request->dis_value_4;
+    $add->Final_Value_4 = $request->fin_value_4;
+    $add->Mfg_Date_4 = $request->mfg_4;
+    $add->Exp_Date_4 = $request->exp_4;
+
+
+   
     $add->save();
     return redirect('/admin/product/list')->with("success", "Product Saved Successfully!");
 
