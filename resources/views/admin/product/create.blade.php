@@ -39,7 +39,10 @@
                       <input type="text" class="form-control" id="product_name" name="product_name">
                     </div>
                     <div class="col-lg-4">
-                      <label for="">Category</label>
+                      <div class="d-flex justify-content-between">
+                        <label for="">Category</label>
+                        <a href="/admin/product/create" class="btn btn-success"> <i class="nav-icon fas fa-plus "></i> </a>
+                      </div>
                       <select name="product_cat" id="product_cat" class="form-control">
                         <option value=""> Select Category  </option>
                         @foreach ($catData as $data)
