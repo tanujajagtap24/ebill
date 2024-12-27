@@ -197,6 +197,12 @@
               Category
               </p>
             </a>
+            <a href="/admin/brand/list" class="nav-link">
+              <i class="nav-icon fas fa-address-book"></i>
+              <p>
+              Brand
+              </p>
+            </a>
             <a href="/admin/city/list" class="nav-link">
               <i class="nav-icon fas fa-address-book"></i>
               <p>
