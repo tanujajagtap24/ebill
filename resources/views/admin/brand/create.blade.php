@@ -45,9 +45,8 @@
               <!-- /.card-body -->
 
               <div class="card-footer text-center">
-                <button type="submit" class="btn btn-success">Submit</button>
-                <button type="reset" class="btn btn-primary">Reset</button>
-                <a href="/admin/brand/list" class="btn btn-secondary"> Back</a>
+                <button type="submit" class="btn btn-success"><i class="nav-icon fas fa-save"> </i> Save</button>
+                <a href="/admin/brand/list" class="btn btn-danger"><i class="nav-icon fas fa-times "></i> Close</a>
               </div>
             </form>
           </div>
