@@ -72,7 +72,7 @@
 
                     <div class="col-lg-3">
                       <label for="">Tax %</label>
-                      <select name="tax_percent" id="tax_percent" class="form-control" oninput="Final()">
+                      <select name="tax_percent" id="tax_percent" class="form-control" oninput="Final_1(), Final_2(), final_3(), final_4()">
                         <option value=""> Select Tax Percentage  </option>
                         @foreach ($taxData as $data)
                           <option value="{{ $data->Tax_Percentage }}">  {{ $data->Tax_Percentage }}  </option>
@@ -137,7 +137,7 @@
                     <td> <input type="text" class="form-control" id="barcode_1" name="barcode_1"> </td>
                     <td> <input type="text" class="form-control" id="rate_1" name="rate_1" oninput="Final_1()"> </td>
                     <td> <input type="text" class="form-control" id="qty_1" name="qty_1" oninput="Final_1()"> </td>
-                    <td> <input type="text" class="form-control" id="total-1" name="total_1" readonly> </td>
+                    <td> <input type="text" class="form-control" id="total_1" name="total_1" readonly> </td>
                     <td> <input type="text" class="form-control" id="dis_percent_1" name="dis_percent_1" oninput="Final_1()"> </td>
                     <td> <input type="text" class="form-control" id="dis_value_1" name="dis_value_1" readonly> </td>
                     <td> <input type="text" class="form-control" id="fin_value_1" name="fin_value_1" readonly> </td>
@@ -148,7 +148,7 @@
                     <td> <input type="text" class="form-control" id="barcode_2" name="barcode_2"> </td>
                     <td> <input type="text" class="form-control" id="rate_2" name="rate_2" oninput="Final_2()"> </td>
                     <td> <input type="text" class="form-control" id="qty_2" name="qty_2" oninput="Final_2()"> </td>
-                    <td> <input type="text" class="form-control" id="total-2" name="total_2" readonly> </td>
+                    <td> <input type="text" class="form-control" id="total_2" name="total_2" readonly> </td>
                     <td> <input type="text" class="form-control" id="dis_percent_2" name="dis_percent_2" oninput="Final_2()"> </td>
                     <td> <input type="text" class="form-control" id="dis_value_2" name="dis_value_2" readonly> </td>
                     <td> <input type="text" class="form-control" id="fin_value_2" name="fin_value_2" readonly> </td>
@@ -159,7 +159,7 @@
                     <td> <input type="text" class="form-control" id="barcode_3" name="barcode_3"> </td>
                     <td> <input type="text" class="form-control" id="rate_3" name="rate_3" oninput="Final_3()"> </td>
                     <td> <input type="text" class="form-control" id="qty_3" name="qty_3" oninput="Final_3()"> </td>
-                    <td> <input type="text" class="form-control" id="total-3" name="total_3" readonly> </td>
+                    <td> <input type="text" class="form-control" id="total_3" name="total_3" readonly> </td>
                     <td> <input type="text" class="form-control" id="dis_percent_3" name="dis_percent_3" oninput="Final_3()"> </td>
                     <td> <input type="text" class="form-control" id="dis_value_3" name="dis_value_3" readonly> </td>
                     <td> <input type="text" class="form-control" id="fin_value_3" name="fin_value_3" readonly> </td>
@@ -170,7 +170,7 @@
                     <td> <input type="text" class="form-control" id="barcode_4" name="barcode_4"> </td>
                     <td> <input type="text" class="form-control" id="rate_4" name="rate_4" oninput="Final_4()"> </td>
                     <td> <input type="text" class="form-control" id="qty_4" name="qty_4" oninput="Final_4()"> </td>
-                    <td> <input type="text" class="form-control" id="total-4" name="total_4" readonly> </td>
+                    <td> <input type="text" class="form-control" id="total_4" name="total_4" readonly> </td>
                     <td> <input type="text" class="form-control" id="dis_percent_4" name="dis_percent_4" oninput="Final_4()"> </td>
                     <td> <input type="text" class="form-control" id="dis_value_4" name="dis_value_4" readonly> </td>
                     <td> <input type="text" class="form-control" id="fin_value_4" name="fin_value_4" readonly> </td>
@@ -219,8 +219,8 @@
     var amount_1 = Total_1 - discount_value_1;
 
     // Calculate Tax Value
-    var tax_per_1 = parseFloat(document.getElementById('tax_percent_1').value);
-    var tax_value_1 = (tax_per_1 / 100) * amount_1;
+    var tax_per = parseFloat(document.getElementById('tax_percent').value);
+    var tax_value_1 = (tax_per / 100) * amount_1;
 
     // Calculate Final Amount
     var final_1 = amount_1 + tax_value_1;
@@ -246,8 +246,8 @@
     var amount_2 = Total_2 - discount_value_2;
 
     // Calculate Tax Value
-    var tax_per_2 = parseFloat(document.getElementById('tax_percent_2').value);
-    var tax_value_2 = (tax_per_2 / 100) * amount_2;
+    var tax_per = parseFloat(document.getElementById('tax_percent').value);
+    var tax_value_2 = (tax_per / 100) * amount_2;
 
     // Calculate Final Amount
     var final_2 = amount_2 + tax_value_2;
@@ -273,8 +273,8 @@
     var amount_3 = Total_3 - discount_value_3;
 
     // Calculate Tax Value
-    var tax_per_3 = parseFloat(document.getElementById('tax_percent_3').value);
-    var tax_value_3 = (tax_per_3 / 100) * amount_3;
+    var tax_per = parseFloat(document.getElementById('tax_percent').value);
+    var tax_value_3 = (tax_per / 100) * amount_3;
 
     // Calculate Final Amount
     var final_3 = amount_3 + tax_value_3;
@@ -300,12 +300,12 @@
     var amount_4 = Total_4 - discount_value_4;
 
     // Calculate Tax Value
-    var tax_per_4 = parseFloat(document.getElementById('tax_percent_4').value);
-    var tax_value_4 = (tax_per_4 / 100) * amount_4;
+    var tax_per = parseFloat(document.getElementById('tax_percent').value);
+    var tax_value_4 = (tax_per / 100) * amount_4;
 
     // Calculate Final Amount
     var final_4 = amount_4 + tax_value_4;
-    document.getElementById('fin_value_3').value = final_4;
+    document.getElementById('fin_value_4').value = final_4;
   }
 
   
