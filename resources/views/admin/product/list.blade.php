@@ -56,20 +56,31 @@
                                             <td> {{ $data->Product_Category }} </td>
                                             <td>{{ $data->Product_Brand }}</td>
                                             <td>
-                                                <tr></tr>
-                                                <tr>
+                                          
                                                     <td> {{ $data->Quantity_1 }} </td>
                                                     <td> {{ $data->Quantity_2 }} </td>
                                                     <td> {{ $data->Quantity_3 }} </td>
                                                     <td> {{ $data->Quantity_4 }} </td>
-                                                </tr>
+                                           
                                             </td>
 
 
-                                            <td> {{ $data->Rate }} </td>
-                                            <td> {{ $data->Dis_Percent }} </td>
+                                            <td> {{ $data->Rate_1 }} </td>
+                                            <td> {{ $data->Rate_2 }} </td>
+                                            <td> {{ $data->Rate_3 }} </td>
+                                            <td> {{ $data->Rate_4 }} </td>
+
+                                            <td> {{ $data->Final_Value_1 }} </td>
+                                            <td> {{ $data->Final_Value_2 }} </td>
+                                            <td> {{ $data->Final_Value_3 }} </td>
+                                            <td> {{ $data->Final_Value_4 }} </td>
+
+
+                                            <td> {{ $data->Dis_Percent_1 }} </td>
+                                            <td> {{ $data->Dis_Percent_2 }} </td>
+                                            <td> {{ $data->Dis_Percent_3 }} </td>
+                                            <td> {{ $data->Dis_Percent_4 }} </td>
                                             <td> {{ $data->Tax_Percent }} </td>
-                                            <td> {{ $data->Final_Value }} </td>
                                             <td>
                                               <a class="btn btn-primary" href="/admin/product/view/{{ $data->id }}"> <i class="nav-icon fas fa-eye"></i> View </a>
                                               <a class="btn btn-secondary" href="/admin/product/edit/{{ $data->id }}"> <i class="nav-icon fas fa-edit"></i> Edit </a>
