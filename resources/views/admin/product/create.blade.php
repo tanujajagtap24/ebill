@@ -102,7 +102,7 @@
                   </div>
 
                   <div class="col-lg-4">
-                    <label for=""> Primary Unit </label>
+                    <label for=""> Alternate Unit </label>
                     <select name="a_unit" id="a_unit" class="form-control" >
                       <option value=""> Select </option>
                       <option value="Nos"> Nos </option>
