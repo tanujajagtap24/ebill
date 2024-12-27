@@ -49,7 +49,7 @@
                     <td> {{ $loop->iteration }} </td>
                     <td> {{ $data->Brand_Name }} </td>
                     <td>
-                      <td> <a href="/admin/brand/copy/{{ $data->id }}" class="btn btn-info"><i class="nav-icon fas fa-copy "></i>  </a> </td>
+                      <a href="/admin/brand/copy/{{ $data->id }}" class="btn btn-info"><i class="nav-icon fas fa-copy "></i>  </a> 
                       <a class="btn btn-primary" href="/admin/brand/view/{{ $data->id }}"> <i class="nav-icon fas fa-eye"></i>  </a>
                       <a class="btn btn-secondary" href="/admin/brand/edit/{{ $data->id }}"> <i class="nav-icon fas fa-edit"></i>  </a>
                       <a class="btn btn-danger" href="/admin/brand/delete/{{ $data->id }}"> <i class="nav-icon fas fa-trash"></i>   </a>
