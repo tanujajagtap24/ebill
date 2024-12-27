@@ -131,21 +131,53 @@
                     <th>Final Value</th>
                     <th>Mfg Date</th>
                     <th>Exp Date</th>
-                    <th>Action</th>
                   </tr>
                   <tbody>
                   <tr>
-                    <td> <input type="text" class="form-control" id="barcode" name="barcode"> </td>
-                    <td> <input type="text" class="form-control" id="rate" name="rate" oninput="Final()"> </td>
-                    <td> <input type="text" class="form-control" id="qty" name="qty" oninput="Final()"> </td>
-                    <td> <input type="text" class="form-control" id="total" name="total" readonly> </td>
-                    <td> <input type="text" class="form-control" id="dis_percent" name="dis_percent" oninput="Final()"> </td>
-                    <td> <input type="text" class="form-control" id="dis_value" name="dis_value" readonly> </td>
-                    <td> <input type="text" class="form-control" id="fin_value" name="fin_value" readonly> </td>
-                    <td> <input type="date" class="form-control" id="mfg" name="mfg"> </td>
-                    <td> <input type="date" class="form-control" id="exp" name="exp"> </td>
-                    <td> <a href="#" class="btn btn-primary" ><i class="nav-icon fas fa-copy "></i> </a> </td>
+                    <td> <input type="text" class="form-control" id="barcode_1" name="barcode_1"> </td>
+                    <td> <input type="text" class="form-control" id="rate_1" name="rate_1" oninput="Final_1()"> </td>
+                    <td> <input type="text" class="form-control" id="qty_1" name="qty_1" oninput="Final_1()"> </td>
+                    <td> <input type="text" class="form-control" id="total-1" name="total_1" readonly> </td>
+                    <td> <input type="text" class="form-control" id="dis_percent_1" name="dis_percent_1" oninput="Final_1()"> </td>
+                    <td> <input type="text" class="form-control" id="dis_value_1" name="dis_value_1" readonly> </td>
+                    <td> <input type="text" class="form-control" id="fin_value_1" name="fin_value_1" readonly> </td>
+                    <td> <input type="date" class="form-control" id="mfg_1" name="mfg_1"> </td>
+                    <td> <input type="date" class="form-control" id="exp_1" name="exp_1"> </td>
                   </tr>
+                  <tr>
+                    <td> <input type="text" class="form-control" id="barcode_2" name="barcode_2"> </td>
+                    <td> <input type="text" class="form-control" id="rate_2" name="rate_2" oninput="Final_2()"> </td>
+                    <td> <input type="text" class="form-control" id="qty_2" name="qty_2" oninput="Final_2()"> </td>
+                    <td> <input type="text" class="form-control" id="total-2" name="total_2" readonly> </td>
+                    <td> <input type="text" class="form-control" id="dis_percent_2" name="dis_percent_2" oninput="Final_2()"> </td>
+                    <td> <input type="text" class="form-control" id="dis_value_2" name="dis_value_2" readonly> </td>
+                    <td> <input type="text" class="form-control" id="fin_value_2" name="fin_value_2" readonly> </td>
+                    <td> <input type="date" class="form-control" id="mfg_2" name="mfg_2"> </td>
+                    <td> <input type="date" class="form-control" id="exp_2" name="exp_2"> </td>
+                  </tr>
+                  <tr>
+                    <td> <input type="text" class="form-control" id="barcode_3" name="barcode_3"> </td>
+                    <td> <input type="text" class="form-control" id="rate_3" name="rate_3" oninput="Final_3()"> </td>
+                    <td> <input type="text" class="form-control" id="qty_3" name="qty_3" oninput="Final_3()"> </td>
+                    <td> <input type="text" class="form-control" id="total-3" name="total_3" readonly> </td>
+                    <td> <input type="text" class="form-control" id="dis_percent_3" name="dis_percent_3" oninput="Final_3()"> </td>
+                    <td> <input type="text" class="form-control" id="dis_value_3" name="dis_value_3" readonly> </td>
+                    <td> <input type="text" class="form-control" id="fin_value_3" name="fin_value_3" readonly> </td>
+                    <td> <input type="date" class="form-control" id="mfg_3" name="mfg_3"> </td>
+                    <td> <input type="date" class="form-control" id="exp_3" name="exp_3"> </td>
+                  </tr>
+                  <tr>
+                    <td> <input type="text" class="form-control" id="barcode_4" name="barcode_4"> </td>
+                    <td> <input type="text" class="form-control" id="rate_4" name="rate_4" oninput="Final_4()"> </td>
+                    <td> <input type="text" class="form-control" id="qty_4" name="qty_4" oninput="Final_4()"> </td>
+                    <td> <input type="text" class="form-control" id="total-4" name="total_4" readonly> </td>
+                    <td> <input type="text" class="form-control" id="dis_percent_4" name="dis_percent_4" oninput="Final_4()"> </td>
+                    <td> <input type="text" class="form-control" id="dis_value_4" name="dis_value_4" readonly> </td>
+                    <td> <input type="text" class="form-control" id="fin_value_4" name="fin_value_4" readonly> </td>
+                    <td> <input type="date" class="form-control" id="mfg_4" name="mfg_4"> </td>
+                    <td> <input type="date" class="form-control" id="exp_4" name="exp_4"> </td>
+                  </tr>
+                  
                   </tbody>
                 </table>
                 <div class="float-right pt-4">
@@ -168,32 +200,115 @@
 @endsection
 
 <script>
-  function Final()
+  function Final_1()
   {
-    var rate = parseFloat(document.getElementById('rate').value);
-    var quantity = parseFloat(document.getElementById('qty').value);
+    var Rate_1 = parseFloat(document.getElementById('rate_1').value);
+    var quantity_1 = parseFloat(document.getElementById('qty_1').value);
 
     // Calculate Total
-    var Total = rate * quantity;
-    document.getElementById('total').value = Total;
+    var Total_1 = Rate_1 * quantity_1;
+    document.getElementById('total_1').value = Total_1;
 
-    var percent = parseFloat(document.getElementById('dis_percent').value);
+    var percent_1 = parseFloat(document.getElementById('dis_percent_1').value);
 
     // Calculate Discount Value
-    var discount_value = (percent / 100) * Total;
-    document.getElementById('dis_value').value = discount_value;
+    var discount_value_1 = (percent_1 / 100) * Total_1;
+    document.getElementById('dis_value_1').value = discount_value_1;
 
     // Value After Applying Discount
-    var amount = Total - discount_value;
+    var amount_1 = Total_1 - discount_value_1;
 
     // Calculate Tax Value
-    var tax_per = parseFloat(document.getElementById('tax_percent').value);
-    var tax_value = (tax_per / 100) * amount;
+    var tax_per_1 = parseFloat(document.getElementById('tax_percent_1').value);
+    var tax_value_1 = (tax_per_1 / 100) * amount_1;
 
     // Calculate Final Amount
-    var final = amount + tax_value;
-    document.getElementById('fin_value').value = final;
+    var final_1 = amount_1 + tax_value_1;
+    document.getElementById('fin_value_1').value = final_1;
   }
+
+  function Final_2()
+  {
+    var Rate_2 = parseFloat(document.getElementById('rate_2').value);
+    var quantity_2 = parseFloat(document.getElementById('qty_2').value);
+
+    // Calculate Total
+    var Total_2 = Rate_2 * quantity_2;
+    document.getElementById('total_2').value = Total_2;
+
+    var percent_2 = parseFloat(document.getElementById('dis_percent_2').value);
+
+    // Calculate Discount Value
+    var discount_value_2 = (percent_2 / 100) * Total_2;
+    document.getElementById('dis_value_2').value = discount_value_2;
+
+    // Value After Applying Discount
+    var amount_2 = Total_2 - discount_value_2;
+
+    // Calculate Tax Value
+    var tax_per_2 = parseFloat(document.getElementById('tax_percent_2').value);
+    var tax_value_2 = (tax_per_2 / 100) * amount_2;
+
+    // Calculate Final Amount
+    var final_2 = amount_2 + tax_value_2;
+    document.getElementById('fin_value_2').value = final_2;
+  }
+
+  function Final_3()
+  {
+    var Rate_3 = parseFloat(document.getElementById('rate_3').value);
+    var quantity_3 = parseFloat(document.getElementById('qty_3').value);
+
+    // Calculate Total
+    var Total_3 = Rate_3 * quantity_3;
+    document.getElementById('total_3').value = Total_3;
+
+    var percent_3 = parseFloat(document.getElementById('dis_percent_3').value);
+
+    // Calculate Discount Value
+    var discount_value_3 = (percent_3 / 100) * Total_3;
+    document.getElementById('dis_value_3').value = discount_value_3;
+
+    // Value After Applying Discount
+    var amount_3 = Total_3 - discount_value_3;
+
+    // Calculate Tax Value
+    var tax_per_3 = parseFloat(document.getElementById('tax_percent_3').value);
+    var tax_value_3 = (tax_per_3 / 100) * amount_3;
+
+    // Calculate Final Amount
+    var final_3 = amount_3 + tax_value_3;
+    document.getElementById('fin_value_3').value = final_3;
+  }
+
+  function Final_4()
+  {
+    var Rate_4 = parseFloat(document.getElementById('rate_4').value);
+    var quantity_4 = parseFloat(document.getElementById('qty_4').value);
+
+    // Calculate Total
+    var Total_4 = Rate_4 * quantity_4;
+    document.getElementById('total_4').value = Total_4;
+
+    var percent_4 = parseFloat(document.getElementById('dis_percent_4').value);
+
+    // Calculate Discount Value
+    var discount_value_4 = (percent_4 / 100) * Total_4;
+    document.getElementById('dis_value_4').value = discount_value_4;
+
+    // Value After Applying Discount
+    var amount_4 = Total_4 - discount_value_4;
+
+    // Calculate Tax Value
+    var tax_per_4 = parseFloat(document.getElementById('tax_percent_4').value);
+    var tax_value_4 = (tax_per_4 / 100) * amount_4;
+
+    // Calculate Final Amount
+    var final_4 = amount_4 + tax_value_4;
+    document.getElementById('fin_value_3').value = final_4;
+  }
+
+  
 
 
 </script>
