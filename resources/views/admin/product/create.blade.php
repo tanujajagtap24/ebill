@@ -120,7 +120,7 @@
               <!-- /.card-body -->
 
               <div class="card-footer text-center">
-                <table>
+                <table id="dynamicTable">
                   <tr>
                     <th>Barcode</th>
                     <th>Rate</th>
@@ -133,8 +133,8 @@
                     <th>Exp Date</th>
                     <th>Action</th>
                   </tr>
+                  <tbody>
                   <tr>
-                    
                     <td> <input type="text" class="form-control" id="barcode" name="barcode"> </td>
                     <td> <input type="text" class="form-control" id="rate" name="rate" oninput="Final()"> </td>
                     <td> <input type="text" class="form-control" id="qty" name="qty" oninput="Final()"> </td>
@@ -144,11 +144,12 @@
                     <td> <input type="text" class="form-control" id="fin_value" name="fin_value" readonly> </td>
                     <td> <input type="date" class="form-control" id="mfg" name="mfg"> </td>
                     <td> <input type="date" class="form-control" id="exp" name="exp"> </td>
-                    <td> <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-copy "></i> </a> </td>
+                    <td> <a href="#" class="btn btn-primary" onclick="copyRow(this)" ><i class="nav-icon fas fa-copy "></i> </a> </td>
                   </tr>
+                  </tbody>
                 </table>
                 <div class="float-right pt-4">
-                  <button type="submit" class="btn btn-success"><i class="nav-icon fas fa-save"> </i> Save</button>
+                  <button type="submit" class="btn btn-success" ><i class="nav-icon fas fa-save"> </i> Save</button>
                   <a href="/admin/product/list" class="btn btn-danger"><i class="nav-icon fas fa-times "></i> Close</a>
                 </div>
               </div>
@@ -192,5 +193,14 @@
     // Calculate Final Amount
     var final = amount + tax_value;
     document.getElementById('fin_value').value = final;
+  }
+
+
+  function copyRow(button)
+  {
+    const row = button.parentElement.parentElement;
+    const newRow = row.cloneNode(true);
+    newRow.querySelectorAll('input').forEach(input => input.value = "");
+    document.querySelector('#dynamicTable tbody').appendChild(newRow);
   }
 </script>
