@@ -43,6 +43,7 @@ Route::get('/admin/category/edit/{id}', [Category_Controller::class, 'Edit']);
 Route::post('/admin/category/update', [Category_Controller::class, 'Update']);
 
 //brand CRUD (Admin)
+Route::get('/admin/brand/copy/{id}', [Brand_Controller::class, 'Copy']);
 Route::get('/admin/brand/create', [Brand_Controller::class, 'Create']);
 Route::get('/admin/brand/list', [Brand_Controller::class, 'List']);
 Route::post('/admin/brand/store', [Brand_Controller::class, 'Store']);

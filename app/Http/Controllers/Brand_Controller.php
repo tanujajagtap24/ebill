@@ -9,6 +9,15 @@ use\App\Models\brand;
 
 class Brand_Controller extends Controller
 {
+    function Copy(Request $request, $id)
+    {
+        $Data = brand::find($id);
+        $CopyData = $Data->replicate();
+        $CopyData->save();
+
+        return redirect('/admin/brand/list')->with("success", "Brand Copied Successfully!");
+    }
+
     function List(Request $request)
     {
         $BrandData = brand::all();

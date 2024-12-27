@@ -53,7 +53,6 @@ class Category_Controller extends Controller
         $updateData->Category_Name = $request->cat_name;
         $updateData->save();
         return redirect('/admin/category/list')->with("success", "Category Updated Successfully!");
-
     }
 
 }

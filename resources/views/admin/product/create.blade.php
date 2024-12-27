@@ -144,7 +144,7 @@
                     <td> <input type="text" class="form-control" id="fin_value" name="fin_value" readonly> </td>
                     <td> <input type="date" class="form-control" id="mfg" name="mfg"> </td>
                     <td> <input type="date" class="form-control" id="exp" name="exp"> </td>
-                    <td> <a href=""> Button </a> </td>
+                    <td> <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-copy "></i> </a> </td>
                   </tr>
                 </table>
                 <div class="float-right pt-4">
