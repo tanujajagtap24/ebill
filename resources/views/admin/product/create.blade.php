@@ -113,47 +113,7 @@
 
                   <div class="col-lg-4">
                     <label for=""> Conversion Factor  </label>
-                    <input type="text" name="c_factor" id="c_factor" placeholder="Enter Conversion Factor">
-                  </div>
-
-                  <div class="row pt-3">
-                    <div class="col-lg-4">
-                      <label for="">Barcode</label> 
-                      <input type="text" class="form-control" id="barcode" name="barcode">
-                    </div>
-                    <div class="col-lg-4">
-                      <label for="">Rate</label>
-                      <input type="text" class="form-control" id="rate" name="rate" oninput="Final()">
-                    </div>
-                    <div class="col-lg-4">
-                      <label for="">Quantity</label> 
-                      <input type="text" class="form-control" id="qty" name="qty" oninput="Final()">
-                    </div>
-                    <div class="col-lg-4">
-                      <label for="">Total</label>
-                      <input type="text" class="form-control" id="total" name="total" readonly>
-                    </div>
-                    <div class="col-lg-3">
-                      <label for="">Discount %</label>
-                      <input type="text" class="form-control" id="dis_percent" name="dis_percent" oninput="Final()">
-                    </div>
-                    <div class="col-lg-3">
-                      <label for="">Discount Value</label>
-                      <input type="text" class="form-control" id="dis_value" name="dis_value" readonly>
-                    </div>
-                    <div class="col-lg-3">
-                      <label for="">Final Value</label>
-                      <input type="text" class="form-control" id="fin_value" name="fin_value" readonly>
-                    </div>
-                    <div class="col-lg-3">
-                      <label for="">MFG Date</label>
-                      <input type="text" class="form-control" id="mfg" name="mfg" readonly>
-                    </div>
-                    <div class="col-lg-3">
-                      <label for="">Expiry Date</label>
-                      <input type="text" class="form-control" id="exp" name="exp" readonly>
-                    </div>
-
+                    <input type="text" name="c_factor" class="form-control" id="c_factor" placeholder="Enter Conversion Factor">
                   </div>
                 </div>
               </div>
@@ -182,8 +142,8 @@
                     <td> <input type="text" class="form-control" id="dis_percent" name="dis_percent" oninput="Final()"> </td>
                     <td> <input type="text" class="form-control" id="dis_value" name="dis_value" readonly> </td>
                     <td> <input type="text" class="form-control" id="fin_value" name="fin_value" readonly> </td>
-                    <td> <input type="date" class="form-control" id="mfg" name="mfg" readonly> </td>
-                    <td> <input type="date" class="form-control" id="exp" name="exp" readonly> </td>
+                    <td> <input type="date" class="form-control" id="mfg" name="mfg"> </td>
+                    <td> <input type="date" class="form-control" id="exp" name="exp"> </td>
                     <td> <a href=""> Button </a> </td>
                   </tr>
                 </table>
