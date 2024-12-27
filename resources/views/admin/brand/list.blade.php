@@ -47,7 +47,7 @@
                   @foreach ($BrandData as $data)
                   <tr>
                     <td> {{ $loop->iteration }} </td>
-                    <td> {{ $data->Category_Name }} </td>
+                    <td> {{ $data->Brand_Name }} </td>
                     <td>
                       <a class="btn btn-primary" href="/admin/brand/view/{{ $data->id }}"> <i class="nav-icon fas fa-eye"></i> View </a>
                       <a class="btn btn-secondary" href="/admin/brand/edit/{{ $data->id }}"> <i class="nav-icon fas fa-edit"></i> Edit </a>
