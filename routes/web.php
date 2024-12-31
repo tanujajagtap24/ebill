@@ -27,11 +27,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/admin-1', function () {
     return view('admin\master');
 });
+Route::get('/admin-2', function () {
+    return view('admin\master_1');
+});
+
 
 Route::get('/', function () {
     return view('admin\dashboard');
 });
 
+
+Route::get('/admin/pos', function () {
+    return view('admin\pos');
+});
 
 //category CRUD (Admin)
 Route::get('/admin/category/create', [Category_Controller::class, 'Create']);

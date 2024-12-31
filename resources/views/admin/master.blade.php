@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Billing System</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
-   
-  <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
@@ -42,10 +41,10 @@
         <a href="/admin-1" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/admin/contact/list" class="nav-link">Contact</a>
+        <a href="/admin/service/list" class="nav-link">Service</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/admin/service/list" class="nav-link">Service</a>
+        <a href="/admin/contact/list" class="nav-link">Contact</a>
       </li>
     </ul>
 
@@ -161,10 +160,10 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="{{asset('website/img/title.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3 border border-white"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">Billing System</span>
-    </a>
+        <img src="{{asset('website/img/title.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3 border border-white"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">Billing System</span>
+      </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -183,64 +182,95 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-         
-          <li class="nav-item">
-            <a href="/admin/service/list" class="nav-link">
+                             {{-- forms --}}
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-cog"></i>
               <p>
-               Service
+                Settings
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <a href="/admin/category/list" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>
-              Category
-              </p>
-            </a>
-            <a href="/admin/brand/list" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>
-              Brand
-              </p>
-            </a>
-            <a href="/admin/city/list" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>
-              City
-              </p>
-            </a>
-            <a href="/admin/group/list" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>
-              Group
-              </p>
-            </a>
-            <a href="/admin/tax/list" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>
-              Tax
-              </p>
-            </a>
-            <a href="/admin/unit/list" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>
-              Unit
-              </p>
-            </a>
-            <a href="/admin/customer/list" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>
-              Customer
-              </p>
-            </a>
-            <a href="/admin/product/list" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>
-              Product
-              </p>
-            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/category/list" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Category</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/brand/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Brand</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/city/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>City</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/group/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Group</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/tax/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tax</p>
+                </a>
+              </li> 
+              <li class="nav-item">
+                <a href="/admin/unit/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Unit</p>
+                </a>
+              </li> 
+            </ul>
           </li>
-          <!-- <li class="nav-item has-treeview">
+
+               <li class="nav-item">
+                <a href="/admin/customer/list" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>
+                    Customer
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/admin/product/list" class="nav-link">
+                  <i class="nav-icon fas fa-box"></i>
+                  <p>
+                    Product
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/admin/pos" class="nav-link">
+                  <i class="nav-icon fas fa-list"></i>
+                  <p>
+                    POS
+                  </p>
+                </a>
+              </li>
+
+          {{-- Widgets  --}}
+          {{-- <li class="nav-item">
+            <a href="pages/widgets.html" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Widgets
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li> --}}
+
+          {{-- Layout Options --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -287,8 +317,10 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+
+          {{-- Charts --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -316,8 +348,10 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+
+          {{-- UI Elements --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
@@ -375,8 +409,10 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+
+          {{-- Forms --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -404,8 +440,10 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+
+          {{-- Tables --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
@@ -433,9 +471,12 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-header">EXAMPLES</li>
-          <li class="nav-item">
+          </li> --}}
+
+          {{-- EXAMPLES --}}
+          {{-- <li class="nav-header">EXAMPLES</li> --}}
+          {{-- Calendar --}}
+          {{-- <li class="nav-item">
             <a href="pages/calendar.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
@@ -443,16 +484,20 @@
                 <span class="badge badge-info right">2</span>
               </p>
             </a>
-          </li>
-          <li class="nav-item">
+          </li> --}}
+
+          {{-- Gallery --}}
+          {{-- <li class="nav-item">
             <a href="pages/gallery.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Gallery
               </p>
             </a>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+
+          {{-- Mailbox --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>
@@ -480,8 +525,10 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+
+          {{-- Pages --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -539,8 +586,10 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+
+          {{-- Extras --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
@@ -622,15 +671,19 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-header">MISCELLANEOUS</li>
+          </li> --}}
+
+          {{-- MISCELLANEOUS --}}
+          {{-- <li class="nav-header">MISCELLANEOUS</li>
           <li class="nav-item">
             <a href="https://adminlte.io/docs/3.0" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Documentation</p>
             </a>
-          </li>
-          <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+          </li> --}}
+
+          {{-- MULTI LEVEL EXAMPLE --}}
+          {{-- <li class="nav-header">MULTI LEVEL EXAMPLE</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-circle nav-icon"></i>
@@ -694,8 +747,10 @@
               <i class="fas fa-circle nav-icon"></i>
               <p>Level 1</p>
             </a>
-          </li>
-          <li class="nav-header">LABELS</li>
+          </li> --}}
+
+          {{-- LABELS --}}
+          {{-- <li class="nav-header">LABELS</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>
@@ -713,7 +768,7 @@
               <i class="nav-icon far fa-circle text-info"></i>
               <p>Informational</p>
             </a>
-          </li> -->
+          </li> --}}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -721,7 +776,8 @@
     <!-- /.sidebar -->
   </aside>
 
- @yield('content')
+  @yield('content')
+
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.

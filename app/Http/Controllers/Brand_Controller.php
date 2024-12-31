@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use\App\Models\brand;
+use App\Models\brand;
 
 
 class Brand_Controller extends Controller
