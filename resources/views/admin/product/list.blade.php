@@ -35,57 +35,58 @@
                         <!-- general form elements -->
                         <div class="card ">
                             <!-- form start -->
-                            <table class="table table-striped">
+                            <table class="table  table-bordered">
                                 <thead>
                                     <th>#</th>
                                     <th>Product Name</th>
                                     <th>Category</th>
                                     <th>Brand</th>
+                                    <th>Tax %</th>
                                     <th>Quantity</th>
                                     <th>Rate</th>
                                     <th>Discount %</th>
-                                    <th>Tax %</th>
+                                    
                                     <th>Final Value</th>
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
                                     @foreach ($productData as $data)
                                         <tr>
-                                            <td> {{ $loop->iteration }} </td>
-                                            <td> {{ $data->Product_Name }} </td>
-                                            <td> {{ $data->Product_Category }} </td>
-                                            <td>{{ $data->Product_Brand }}</td>
-                                            <td>
-                                          
-                                                    <td> {{ $data->Quantity_1 }} </td>
-                                                    <td> {{ $data->Quantity_2 }} </td>
-                                                    <td> {{ $data->Quantity_3 }} </td>
-                                                    <td> {{ $data->Quantity_4 }} </td>
-                                           
-                                            </td>
-
-
+                                            <td rowspan="4"> {{ $loop->iteration }} </td>
+                                            <td rowspan="4"> {{ $data->Product_Name }} </td>
+                                            <td rowspan="4"> {{ $data->Product_Category }} </td>
+                                            <td rowspan="4">{{ $data->Product_Brand }}</td>
+                                            <td rowspan="4"> {{ $data->Tax_Percent }} </td>
+                                
+                                            <td> {{ $data->Quantity_1 }} </td>
                                             <td> {{ $data->Rate_1 }} </td>
-                                            <td> {{ $data->Rate_2 }} </td>
-                                            <td> {{ $data->Rate_3 }} </td>
-                                            <td> {{ $data->Rate_4 }} </td>
-
                                             <td> {{ $data->Final_Value_1 }} </td>
-                                            <td> {{ $data->Final_Value_2 }} </td>
-                                            <td> {{ $data->Final_Value_3 }} </td>
-                                            <td> {{ $data->Final_Value_4 }} </td>
-
-
                                             <td> {{ $data->Dis_Percent_1 }} </td>
-                                            <td> {{ $data->Dis_Percent_2 }} </td>
-                                            <td> {{ $data->Dis_Percent_3 }} </td>
-                                            <td> {{ $data->Dis_Percent_4 }} </td>
-                                            <td> {{ $data->Tax_Percent }} </td>
-                                            <td>
+                                            
+                                            <td rowspan="4">
                                               <a class="btn btn-primary" href="/admin/product/view/{{ $data->id }}"> <i class="nav-icon fas fa-eye"></i> View </a>
                                               <a class="btn btn-secondary" href="/admin/product/edit/{{ $data->id }}"> <i class="nav-icon fas fa-edit"></i> Edit </a>
                                               <a class="btn btn-danger" href="/admin/product/delete/{{ $data->id }}"> <i class="nav-icon fas fa-trash"></i> Delete </a>
                                             </td>
+                                          </tr>
+
+                                          <tr>
+                                            <td> {{ $data->Quantity_2 }} </td>
+                                            <td> {{ $data->Rate_2 }} </td>
+                                            <td> {{ $data->Dis_Percent_2 }} </td>
+                                            <td> {{ $data->Final_Value_2 }} </td>
+                                          </tr>
+                                          <tr>
+                                            <td> {{ $data->Quantity_3 }} </td>
+                                            <td> {{ $data->Rate_3 }} </td>
+                                            <td> {{ $data->Dis_Percent_3 }} </td>
+                                            <td> {{ $data->Final_Value_3 }} </td>
+                                          </tr>
+                                          <tr>
+                                            <td> {{ $data->Quantity_4 }} </td>
+                                            <td> {{ $data->Rate_4 }} </td>
+                                            <td> {{ $data->Dis_Percent_4 }} </td>
+                                            <td> {{ $data->Final_Value_4 }} </td>
                                           </tr>
                                     @endforeach
                                 </tbody>
