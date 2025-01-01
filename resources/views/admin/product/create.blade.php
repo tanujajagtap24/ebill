@@ -71,7 +71,10 @@
                     </div>
 
                     <div class="col-lg-3">
-                      <label for="">Tax %</label>
+                      <div class="d-flex justify-content-between">
+                        <label for="">Tax %</label>
+                        <a href="/admin/tax/create" class="btn btn-success"> <i class="nav-icon fas fa-plus "></i> </a>
+                      </div>
                       <select name="tax_percent" id="tax_percent" class="form-control" oninput="Final_1(), Final_2(), final_3(), final_4()">
                         <option value=""> Select Tax Percentage  </option>
                         @foreach ($taxData as $data)

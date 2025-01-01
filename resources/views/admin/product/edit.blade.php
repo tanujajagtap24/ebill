@@ -32,14 +32,15 @@
               <div class="card-body">
                 <div class="form-group">
                   <div class="row">
-                  <input type="hidden" class="form-control" id="product_id" name="product_id" value="{{$editData->id}}">
+                  <input type="hidden" class="form-control" id="product_id" name="product_id" value="{{$masterData->id}}">
+                  <input type="hidden" class="form-control" id="product_master_id" name="product_master_id" value="{{$childData->product_master_id}}">
                     <div class="col-lg-6">
                       <label for="">Product Name</label>
-                      <input type="text" class="form-control" id="product_name" name="product_name" value="{{$editData->Product_Name}}">
+                      <input type="text" class="form-control" id="product_name" name="product_name" value="{{$masterData->Product_Name}}">
                     </div>
                     <div class="col-lg-6">
                       <label for="">HSN Code</label>
-                      <input type="text" class="form-control" id="hsn" name="hsn" placeholder="Enter HSN Code"  value="{{$editData->HSN_Code}}">
+                      <input type="text" class="form-control" id="hsn" name="hsn" placeholder="Enter HSN Code"  value="{{$masterData->HSN_Code}}">
                     </div>
                   </div>
                   <div class="row pt-3">
@@ -49,7 +50,7 @@
                         <a href="/admin/category/create" class="btn btn-success"> <i class="nav-icon fas fa-plus "></i> </a>
                       </div>
                       <select name="p_cat" id="p_cat" class="form-control">
-                        <option value="{{$editData->Product_Category}}">{{$editData->Product_Category}} </option>
+                        <option value="{{$masterData->Product_Category}}">{{$masterData->Product_Category}} </option>
                         @foreach ($catData as $data)
                           <option value="{{ $data->Category_Name }}">  {{ $data->Category_Name }}  </option>
                         @endforeach
@@ -62,7 +63,7 @@
                         <a href="/admin/brand/create" class="btn btn-success"> <i class="nav-icon fas fa-plus "></i> </a>
                       </div>
                       <select name="p_brand" id="p_brand" class="form-control">
-                        <option value="{{$editData->Product_Brand}}">  {{$editData->Product_Brand}}   </option>
+                        <option value="{{$masterData->Product_Brand}}">  {{$masterData->Product_Brand}}   </option>
                         @foreach ($brandData as $data)
                           <option value="{{ $data->Brand_Name }}">  {{ $data->Brand_Name }}  </option>
                         @endforeach
@@ -72,7 +73,7 @@
                     <div class="col-lg-3">
                       <label for="">Tax %</label>
                       <select name="tax_percent" id="tax_percent" class="form-control" oninput="Final()">
-                        <option value="{{$editData->Tax_Percent}}">   {{$editData->Tax_Percent}} </option>
+                        <option value="{{$masterData->Tax_Percent}}">   {{$masterData->Tax_Percent}} </option>
                         @foreach ($taxData as $data)
                           <option value="{{ $data->Tax_Percentage }}">  {{ $data->Tax_Percentage }}  </option>
                         @endforeach
@@ -82,7 +83,7 @@
                     <div class="col-lg-3">
                       <label for="">Tax Type</label>
                       <select name="tax_type" id="tax_type" class="form-control">
-                        <option value="{{$editData->Tax_Type}}">{{$editData->Tax_Type}} </option>
+                        <option value="{{$masterData->Tax_Type}}">{{$masterData->Tax_Type}} </option>
                         <option value="Inclusive Tax"> Inclusive Tax </option>
                         <option value="Exclusive Tax"> Exclusive Tax </option>
                       </select>
@@ -93,7 +94,7 @@
                   <div class="col-lg-4">
                     <label for=""> Primary Unit </label>
                     <select name="p_unit" id="p_unit" class="form-control" >
-                      <option value="{{$editData->Primary_Unit}}"> {{$editData->Primary_Unit}}  </option>
+                      <option value="{{$masterData->Primary_Unit}}"> {{$masterData->Primary_Unit}}  </option>
                       <option value="Nos"> Nos </option>
                       <option value="Kg"> Kg </option>
                       <option value="Litre"> Litre </option>
@@ -103,7 +104,7 @@
                   <div class="col-lg-4">
                     <label for=""> Alternate Unit </label>
                     <select name="a_unit" id="a_unit" class="form-control" >
-                      <option value="{{$editData->Alternate_Unit}}">{{$editData->Alternate_Unit}}</option>
+                      <option value="{{$masterData->Alternate_Unit}}">{{$masterData->Alternate_Unit}}</option>
                       <option value="Nos"> Nos </option>
                       <option value="Kg"> Kg </option>
                       <option value="Litre"> Litre </option>
@@ -112,14 +113,14 @@
 
                   <div class="col-lg-4">
                     <label for=""> Conversion Factor  </label>
-                    <input type="text" name="c_factor" class="form-control" id="c_factor" placeholder="Enter Conversion Factor" value="{{$editData->Conversion_Factor}}">
+                    <input type="text" name="c_factor" class="form-control" id="c_factor" placeholder="Enter Conversion Factor" value="{{$masterData->Conversion_Factor}}">
                   </div>
                 </div>
               </div>
               <!-- /.card-body -->
 
               <div class="card-footer text-center">
-                <table>
+                <table id="dynamicTable">
                   <tr>
                     <th>Barcode</th>
                     <th>Rate</th>
@@ -130,24 +131,57 @@
                     <th>Final Value</th>
                     <th>Mfg Date</th>
                     <th>Exp Date</th>
-                    <th>Action</th>
+                  </tr>
+                  <tbody>
+                  <tr>
+                    <td> <input type="text" class="form-control" id="barcode_1" name="barcode_1" value="{{$childData->Barcode_1}}"> </td>
+                    <td> <input type="text" class="form-control" id="rate_1" name="rate_1" oninput="Final_1()" value="{{$childData->Rate_1}}"> </td>
+                    <td> <input type="text" class="form-control" id="qty_1" name="qty_1" oninput="Final_1()" value="{{$childData->Quantity_1}}"> </td>
+                    <td> <input type="text" class="form-control" id="total_1" name="total_1" readonly value="{{$childData->Total_1}}"> </td>
+                    <td> <input type="text" class="form-control" id="dis_percent_1" name="dis_percent_1" oninput="Final_1()" value="{{$childData->Dis_Percent_1}}"> </td>
+                    <td> <input type="text" class="form-control" id="dis_value_1" name="dis_value_1" readonly value="{{$childData->Dis_Value_1}}"> </td>
+                    <td> <input type="text" class="form-control" id="fin_value_1" name="fin_value_1" readonly value="{{$childData->Final_Value_1}}"> </td>
+                    <td> <input type="date" class="form-control" id="mfg_1" name="mfg_1" value="{{$childData->Mfg_Date_1}}"> </td>
+                    <td> <input type="date" class="form-control" id="exp_1" name="exp_1" value="{{$childData->Exp_Date_1}}"> </td>
                   </tr>
                   <tr>
-                    
-                    <td> <input type="text" class="form-control" id="barcode" name="barcode" value="{{$editData->Barcode}}"></td>
-                    <td> <input type="text" class="form-control" id="rate" name="rate" oninput="Final()" value="{{$editData->Rate}}"> </td>
-                    <td> <input type="text" class="form-control" id="qty" name="qty" oninput="Final()" value="{{$editData->Quantity}}"> </td>
-                    <td> <input type="text" class="form-control" id="total" name="total" readonly value="{{$editData->Total}}"> </td>
-                    <td> <input type="text" class="form-control" id="dis_percent" name="dis_percent" oninput="Final()" value="{{$editData->Dis_Percent}}"> </td>
-                    <td> <input type="text" class="form-control" id="dis_value" name="dis_value" readonly value="{{$editData->Dis_Value}}"> </td>
-                    <td> <input type="text" class="form-control" id="fin_value" name="fin_value" readonly value="{{$editData->Final_Value}}"> </td>
-                    <td> <input type="date" class="form-control" id="mfg" name="mfg" value="{{$editData->Mfg_Date}}"> </td>
-                    <td> <input type="date" class="form-control" id="exp" name="exp" value="{{$editData->Exp_Date}}"> </td>
-                    <td><a href="/admin/product/list" class="btn btn-primary"><i class="nav-icon fas fa-copy "></i> </a></a> </td>
+                    <td> <input type="text" class="form-control" id="barcode_2" name="barcode_2" value="{{$childData->Barcode_2}}"> </td>
+                    <td> <input type="text" class="form-control" id="rate_2" name="rate_2" oninput="Final_2()" value="{{$childData->Rate_2}}"> </td>
+                    <td> <input type="text" class="form-control" id="qty_2" name="qty_2" oninput="Final_2()" value="{{$childData->Quantity_2}}"> </td>
+                    <td> <input type="text" class="form-control" id="total_2" name="total_2" readonly value="{{$childData->Total_2}}"> </td>
+                    <td> <input type="text" class="form-control" id="dis_percent_2" name="dis_percent_2" oninput="Final_2()" value="{{$childData->Dis_Percent_2}}"> </td>
+                    <td> <input type="text" class="form-control" id="dis_value_2" name="dis_value_2" readonly value="{{$childData->Dis_Value_2}}"> </td>
+                    <td> <input type="text" class="form-control" id="fin_value_2" name="fin_value_2" readonly value="{{$childData->Final_Value_2}}"> </td>
+                    <td> <input type="date" class="form-control" id="mfg_2" name="mfg_2" value="{{$childData->Mfg_Date_2}}"> </td>
+                    <td> <input type="date" class="form-control" id="exp_2" name="exp_2" value="{{$childData->Exp_Date_2}}"> </td>
                   </tr>
+                  <tr>
+                    <td> <input type="text" class="form-control" id="barcode_3" name="barcode_3" value="{{$childData->Barcode_3}}"> </td>
+                    <td> <input type="text" class="form-control" id="rate_3" name="rate_3" oninput="Final_3()" value="{{$childData->Rate_3}}"> </td>
+                    <td> <input type="text" class="form-control" id="qty_3" name="qty_3" oninput="Final_3()" value="{{$childData->Quantity_3}}"> </td>
+                    <td> <input type="text" class="form-control" id="total_3" name="total_3" readonly value="{{$childData->Total_3}}"> </td>
+                    <td> <input type="text" class="form-control" id="dis_percent_3" name="dis_percent_3" oninput="Final_3()" value="{{$childData->Dis_Percent_3}}"> </td>
+                    <td> <input type="text" class="form-control" id="dis_value_3" name="dis_value_3" readonly value="{{$childData->Dis_Value_3}}"> </td>
+                    <td> <input type="text" class="form-control" id="fin_value_3" name="fin_value_3" readonly value="{{$childData->Final_Value_3}}"> </td>
+                    <td> <input type="date" class="form-control" id="mfg_3" name="mfg_3" value="{{$childData->Mfg_Date_3}}"> </td>
+                    <td> <input type="date" class="form-control" id="exp_3" name="exp_3" value="{{$childData->Exp_Date_3}}"> </td>
+                  </tr>
+                  <tr>
+                    <td> <input type="text" class="form-control" id="barcode_4" name="barcode_4" value="{{$childData->Barcode_4}}"> </td>
+                    <td> <input type="text" class="form-control" id="rate_4" name="rate_4" oninput="Final_4()" value="{{$childData->Rate_4}}"> </td>
+                    <td> <input type="text" class="form-control" id="qty_4" name="qty_4" oninput="Final_4()" value="{{$childData->Quantity_4}}"> </td>
+                    <td> <input type="text" class="form-control" id="total_4" name="total_4" readonly value="{{$childData->Total_4}}"> </td>
+                    <td> <input type="text" class="form-control" id="dis_percent_4" name="dis_percent_4" oninput="Final_4()" value="{{$childData->Dis_Percent_4}}"> </td>
+                    <td> <input type="text" class="form-control" id="dis_value_4" name="dis_value_4" readonly value="{{$childData->Dis_Value_4}}"> </td>
+                    <td> <input type="text" class="form-control" id="fin_value_4" name="fin_value_4" readonly value="{{$childData->Final_Value_4}}"> </td>
+                    <td> <input type="date" class="form-control" id="mfg_4" name="mfg_4" value="{{$childData->Mfg_Date_4}}"> </td>
+                    <td> <input type="date" class="form-control" id="exp_4" name="exp_4" value="{{$childData->Exp_Date_4}}"> </td>
+                  </tr>
+                  
+                  </tbody>
                 </table>
                 <div class="float-right pt-4">
-                  <button type="submit" class="btn btn-success"><i class="nav-icon fas fa-save"> </i> Save</button>
+                  <button type="submit" class="btn btn-success" ><i class="nav-icon fas fa-save"> </i> Save</button>
                   <a href="/admin/product/list" class="btn btn-danger"><i class="nav-icon fas fa-times "></i> Close</a>
                 </div>
               </div>

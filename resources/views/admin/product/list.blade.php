@@ -45,13 +45,19 @@
                                     <th>Quantity</th>
                                     <th>Rate</th>
                                     <th>Discount %</th>
+<<<<<<< HEAD
                                     
+=======
+>>>>>>> c628c52925275b248ee3d9aa9b6664c2ae20b0b0
                                     <th>Final Value</th>
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
-                                    @foreach ($productData as $data)
+                                        @foreach ($masterData as $master)
+                                        @foreach ($childData as $child)
+                                        @if ($master->id == $child->product_master_id)
                                         <tr>
+<<<<<<< HEAD
                                             <td rowspan="4"> {{ $loop->iteration }} </td>
                                             <td rowspan="4"> {{ $data->Product_Name }} </td>
                                             <td rowspan="4"> {{ $data->Product_Category }} </td>
@@ -88,6 +94,52 @@
                                             <td> {{ $data->Dis_Percent_4 }} </td>
                                             <td> {{ $data->Final_Value_4 }} </td>
                                           </tr>
+=======
+                                            {{-- <td rowspan="4"> {{ $loop->iteration }} </td> --}}
+                                            <td rowspan="4"> {{ $master->id }} </td>
+
+                                            <td rowspan="4"> {{ $master->Product_Name }} </td>
+                                            <td rowspan="4"> {{ $master->Product_Category }} </td>
+                                            <td rowspan="4">{{ $master->Product_Brand }}</td>
+                                            <td rowspan="4"> {{ $master->Tax_Percent }} </td>
+                                        
+
+                                    
+                                        <td> {{ $child->Quantity_1 }} </td>
+                                        <td> {{ $child->Rate_1 }} </td>
+                                        <td> {{ $child->Dis_Percent_1 }} </td>
+                                        <td> {{ $child->Final_Value_1 }} </td>
+                                        <td>
+                                            <a class="btn btn-primary" href="/admin/product/view/{{ $master->id }}"> <i class="nav-icon fas fa-eye"></i> View </a>
+                                            <a class="btn btn-secondary" href="/admin/product/edit/{{ $master->id }}"> <i class="nav-icon fas fa-edit"></i> Edit </a>
+                                            <a class="btn btn-danger" href="/admin/product/delete/{{ $master->id }}"> <i class="nav-icon fas fa-trash"></i> Delete </a>
+                                          </td>
+                                    </tr>
+                                    <tr>
+                                        <td> {{ $child->Quantity_2 }} </td>
+                                        <td> {{ $child->Rate_2 }} </td>
+                                        <td> {{ $child->Dis_Percent_2 }} </td>
+                                        <td> {{ $child->Final_Value_2 }} </td>
+                                    </tr>
+                                    <tr>
+                                        <td> {{ $child->Quantity_3 }} </td>
+                                        <td> {{ $child->Rate_3 }} </td>
+                                        <td> {{ $child->Dis_Percent_3 }} </td>
+                                        <td> {{ $child->Final_Value_3 }} </td>
+                                    </tr>
+                                    <tr>
+                                        <td> {{ $child->Quantity_4 }} </td>
+                                        <td> {{ $child->Rate_4 }} </td>
+                                        <td> {{ $child->Dis_Percent_4 }} </td>
+                                        <td> {{ $child->Final_Value_4 }} </td>
+                                    </tr>
+                                        @endif
+                                       
+                                            
+
+
+                                    @endforeach
+>>>>>>> c628c52925275b248ee3d9aa9b6664c2ae20b0b0
                                     @endforeach
                                 </tbody>
 
