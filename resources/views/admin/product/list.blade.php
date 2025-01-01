@@ -92,10 +92,6 @@
                                         <td> {{ $child->Final_Value_4 }} </td>
                                     </tr>
                                         @endif
-                                       
-                                            
-
-
                                     @endforeach
                                     @endforeach
                                 </tbody>

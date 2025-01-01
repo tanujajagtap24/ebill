@@ -8,6 +8,7 @@ use App\Http\Controllers\Contact_Controller;
 use App\Http\Controllers\Customer_Controller;
 use App\Http\Controllers\Frontcontroller;
 use App\Http\Controllers\Group_Controller;
+use App\Http\Controllers\POS_Controller;
 use App\Http\Controllers\Product_Controller;
 use App\Http\Controllers\Tax_Controller;
 use App\Http\Controllers\Unit_Controller;
@@ -27,9 +28,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/admin-1', function () {
     return view('admin\master');
 });
-Route::get('/admin-2', function () {
-    return view('admin\master_1');
-});
 
 
 Route::get('/', function () {
@@ -37,9 +35,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/admin/pos', function () {
-    return view('admin\pos');
-});
+
+Route::get('/admin/pos', [POS_Controller::class, 'POS_Customer']);
+
 
 //category CRUD (Admin)
 Route::get('/admin/category/create', [Category_Controller::class, 'Create']);
