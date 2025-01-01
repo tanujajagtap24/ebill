@@ -46,6 +46,7 @@
                   <th>City</th>
                   <th>Pincode</th>
                   <th>Customer Group</th>
+                  <th>Creadit Amount</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
