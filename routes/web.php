@@ -38,8 +38,10 @@ Route::get('/', function () {
 
 Route::post('/admin/cart/store', [Cart_Controller::class, 'Store']);
 Route::get('/admin/cart/delete/{id}', [Cart_Controller::class, 'Destroy']);
-
 Route::get('/admin/pos', [Cart_Controller::class, 'POS']);
+
+Route::post('/admin/pos/store', [POS_Controller::class, 'Store']);
+
 
 //category CRUD (Admin)
 Route::get('/admin/category/create', [Category_Controller::class, 'Create']);

@@ -15,6 +15,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\Customer_Controller' => $baseDir . '/app/Http/Controllers/Customer_Controller.php',
     'App\\Http\\Controllers\\Group_Controller' => $baseDir . '/app/Http/Controllers/Group_Controller.php',
+    'App\\Http\\Controllers\\POS_Controller' => $baseDir . '/app/Http/Controllers/POS_Controller.php',
     'App\\Http\\Controllers\\Product_Controller' => $baseDir . '/app/Http/Controllers/Product_Controller.php',
     'App\\Http\\Controllers\\Tax_Controller' => $baseDir . '/app/Http/Controllers/Tax_Controller.php',
     'App\\Http\\Controllers\\Unit_Controller' => $baseDir . '/app/Http/Controllers/Unit_Controller.php',
@@ -34,11 +35,8 @@ return array(
     'App\\Models\\city' => $baseDir . '/app/Models/city.php',
     'App\\Models\\customer' => $baseDir . '/app/Models/customer.php',
     'App\\Models\\group' => $baseDir . '/app/Models/group.php',
-<<<<<<< HEAD
     'App\\Models\\pos_child' => $baseDir . '/app/Models/pos_child.php',
-=======
     'App\\Models\\pos_master' => $baseDir . '/app/Models/pos_master.php',
->>>>>>> a90afdaaa02e6dea54557b34e447ae8762eb63ad
     'App\\Models\\product' => $baseDir . '/app/Models/product.php',
     'App\\Models\\product_child' => $baseDir . '/app/Models/product_child.php',
     'App\\Models\\product_master' => $baseDir . '/app/Models/product_master.php',

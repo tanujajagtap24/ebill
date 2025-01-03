@@ -15,6 +15,7 @@ class CreateTblCartTable extends Migration
     {
         Schema::create('tbl_cart', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('Product_id');
             $table->string('Product_Name');
             $table->string('Quantiy');
             $table->string('MRP');

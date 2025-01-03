@@ -11,7 +11,7 @@
                 <a href="#" class="btn btn-light"> <i class="nav-icon fas fa-plus"></i> </a>
               </div>
               <div>
-                  <a href="#" class="btn btn-danger rounded-pill"> <i class="nav-icon fas fa-circle"></i> Dashboard </a>
+                  <a href="/" class="btn btn-danger rounded-pill"> <i class="nav-icon fas fa-circle"></i> Dashboard </a>
                   <a href="#" class="btn btn-primary rounded-pill"> <i class="nav-icon fas fa-circle"></i> POS Bills List </a>
               </div>
             </div>
@@ -41,6 +41,8 @@
                 </div>
                   </form>
 
+                  <form action="/admin/pos/store" method="POST">
+                    @csrf
                     <table class="table table-hover text-center" id="added_products_table">
                       <thead style="background-color: rgb(189, 217, 248)">
                         <tr>
@@ -55,15 +57,18 @@
                       </thead>
                       <tbody>
                         @foreach ($cartData as $data)
+                        <td> <input type="hidden" class="text-center" name="p_id" id="p_id" value="{{ $data->Product_id }}"> </td>
                             <tr>
                               <td> {{ $loop->iteration }} </td>
                               {{-- <td> {{ $data->id }} </td> --}}
-                              <td> {{ $data->Product_Name }} </td>
-                              <td> <input type="number" name="qty" id="qty" min="1" value="{{ $data->Quantiy }}" onchange="Price()"> </td>
+                              <td> <span id="name">{{ $data->Product_Name }} </span> </td>
+                              <td> <input type="number" class="text-center" name="qty" id="qty" min="1" value="{{ $data->Quantiy }}" onchange="Price()"> </td>
                               {{-- <td> <input type="number" name="qty" id="qty" value="{{ $data->Quantiy }}" min="1" data-id ="{{ $data->id }}" class="quantity-input"> </td> --}}
                               <td> {{ $data->MRP }} </td>
+                              {{-- <td> <span id="sale"> {{ $data->Sale_Price }} </span></td> --}}
                               <td> <input type="" name="sale" id="sale" value="{{ $data->Sale_Price }}"> </td>
                               {{-- <td> {{ $data->Sale_Price }} </td> --}}
+                              {{-- <td> <span id="total"> {{ $data->Total }} </span></td> --}}
                               <td> <input type="" name="total" id="total" value="{{ $data->Total }}" > </td>
                               {{-- <td> {{ $data->Total }} </td> --}}
                               {{-- <td> {{ $data->Total }} </td> --}}
@@ -103,7 +108,7 @@
                     </select>
                   </div>
                   <div class="d-flex justify-content-between">
-                    <div>&#8377;{{ $total }}</div>
+                    <div>&#8377;</div>
                     <div>Remaining Amt: &#8377; 0</div>
                   </div>
                   <label for=""> Bill Date: </label>
@@ -111,18 +116,24 @@
                 </div>
                 <div class="card p-2 shadow">
                   <label for=""> Bill Details: </label>
-                  <div class="d-flex justify-content-between bg-danger align-items-center">
+                  <div class="d-flex justify-content-between bg-danger align-items-center ">
                     <span>Total Amount:</span>
-                    <span> <h1>&#8377;{{ $total }}</h1> </span>
+                    <h1>
+                      <input type="text" class="" style="width:200px; height:50px" name="total_amt" id="total_amt" value="{{$total}}">
+
+                    </h1>
+                    {{-- <p id="total_amt"> 0 </p> --}}
                   </div>
                 </div>
                 <div class="card p-2 shadow">
                   <div class="d-flex justify-content-around align-items-center">
-                    <a href="" class="btn btn-primary"> Save Bill </a>
-                    <a href="" class="btn btn-Success"> Clear </a>
+                    <button type="submit" class="btn btn-primary">Save Bill</button>
+                    <button type="Reset" class="btn btn-Success"> Clear</button>
                   </div>
                 </div>
               </div>
+
+            </form>
             </div>
 
           </div>
@@ -171,10 +182,10 @@
     function Price()
     {
       var Quantity = parseInt(document.getElementById('qty').value);
-      var Sale = parseInt(document.getElementById('sale').value);
+      var Sale = parseInt(document.getElementById('sale').innerHTML);
 
       var Total = Quantity * Sale;
-      document.getElementById('total').value = Total;
+      document.getElementById('total').innerHTML = Total;
 
     }
 
