@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backcontroller;
 use App\Http\Controllers\Brand_Controller;
+use App\Http\Controllers\Cart_Controller;
 use App\Http\Controllers\Category_Controller;
 use App\Http\Controllers\City_Controller;
 use App\Http\Controllers\Contact_Controller;
@@ -35,9 +36,10 @@ Route::get('/', function () {
 });
 
 
+Route::post('/admin/cart/store', [Cart_Controller::class, 'Store']);
+Route::get('/admin/cart/delete/{id}', [Cart_Controller::class, 'Destroy']);
 
-Route::get('/admin/pos', [POS_Controller::class, 'POS_Customer']);
-
+Route::get('/admin/pos', [Cart_Controller::class, 'POS']);
 
 //category CRUD (Admin)
 Route::get('/admin/category/create', [Category_Controller::class, 'Create']);

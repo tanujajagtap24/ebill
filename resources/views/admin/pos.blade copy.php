@@ -17,29 +17,21 @@
             </div>
           </div>
           <div class="card-body bg-light">
+            <form action="">
             <div class="row mx-1 ">
-
               <div class="col-9 bg-white  ">
                 <div class="card shadow">
-                  <form action="/admin/cart/store" method="POST">
-                    @csrf
-                    <div class="d-flex justify-content-between">
-                  <select name="product_select" id="product_select" class="form-control"  required>
-                    <option value="">Select</option> 
+                  <select name="product_select" id="product_select" class="form-control" onchange="AddProductToTable()" required>
+                    <option value="">Select</option>
                     @foreach ($ProductMaster as $master)
                       @foreach ($ProductChild as $child)
                         @if ($master->id == $child->product_master_id)
-                      <option value="{{ $master->id }}" data-productName="{{ $master->Product_Name }}" data-rate="{{ $child->Rate_1 }}" data-qty="{{ $child->Quantity_1 }}" data-sale="{{ $child->Dis_Value_1 }}" data-final="{{ $child->Final_Value_1 }}" > {{ $master->Product_Name }} </option>
+                      <option value="{{ $master->id }}" data-productName="{{ $master->Product_Name }}" data-rate="{{ $child->Rate_1 }}" data-qty="{{ $child->Quantity_1 }}" data-final="{{ $child->Final_Value_1 }}" > {{ $master->Product_Name }} </option>
                       @endif
-
-
-                      @endforeach 
+                      @endforeach
                     @endforeach
                   </select>
-                      
-                  <button type="submit" class="btn-primary"><i class="nav-icon fas fa-plus"></i></button>
-                </div>
-                  </form>
+                 
 
                     <table class="table table-hover text-center" id="added_products_table">
                       <thead style="background-color: rgb(189, 217, 248)">
@@ -54,27 +46,18 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($cartData as $data)
-                            <tr>
-                              <td> {{ $loop->iteration }} </td>
-                              {{-- <td> {{ $data->id }} </td> --}}
-                              <td> {{ $data->Product_Name }} </td>
-                              <td> <input type="number" name="qty" id="qty" min="1" value="{{ $data->Quantiy }}" onchange="Price()"> </td>
-                              {{-- <td> <input type="number" name="qty" id="qty" value="{{ $data->Quantiy }}" min="1" data-id ="{{ $data->id }}" class="quantity-input"> </td> --}}
-                              <td> {{ $data->MRP }} </td>
-                              <td> <input type="" name="sale" id="sale" value="{{ $data->Sale_Price }}"> </td>
-                              {{-- <td> {{ $data->Sale_Price }} </td> --}}
-                              <td> <input type="" name="total" id="total" value="{{ $data->Total }}" > </td>
-                              {{-- <td> {{ $data->Total }} </td> --}}
-                              {{-- <td> {{ $data->Total }} </td> --}}
+                        <tr>
+                          <td><span id="product_name"></span></td>
+                          <td><span id="rate"></span></td>
+                          <td><span id="qty"></span></td>
+                          <td><span id="final"></span></td>
+                        </tr>
 
-                              <td> <a href="/admin/cart/delete/{{ $data->id }}" class="btn"> <i class="fas fa-trash-alt text-danger "></i> </a> </td>
-                            </tr>
-                        @endforeach
                       </tbody>
                     </table>
                 </div>
               </div>
+
               <div class="col-3 bg-white  ">
                 <div class="card p-2 shadow">
                   <div class="d-flex justify-content-between">
@@ -124,7 +107,7 @@
                 </div>
               </div>
             </div>
-
+            </form>
           </div>
           <div class="card-footer fixed-bottom text-center">
               <div class="row">
@@ -167,28 +150,16 @@
         document.getElementById('city').innerHTML = selectedOption.getAttribute('data-city');
     }
 
-    // Total 
-    function Price()
-    {
-      var Quantity = parseInt(document.getElementById('qty').value);
-      var Sale = parseInt(document.getElementById('sale').value);
-
-      var Total = Quantity * Sale;
-      document.getElementById('total').value = Total;
-
-    }
-
       // Product Details Script
-      // function AddProductToTable()
-      // {
-      // const productDropdown = document.getElementById('product_select');
-      // const selectedOption = productDropdown.options[productDropdown.selectedIndex];
-      // document.getElementById('product_name').innerHTML = selectedOption.getAttribute('data-productName');
-      // document.getElementById('rate').innerHTML = selectedOption.getAttribute('data-rate');
-      // document.getElementById('qty').innerHTML = selectedOption.getAttribute('data-qty');
-      // document.getElementById('sale').innerHTML = selectedOption.getAttribute('data-sale');
-      // document.getElementById('final').innerHTML = selectedOption.getAttribute('data-final');
-      // }
+      function AddProductToTable()
+      {
+      const productDropdown = document.getElementById('product_select');
+      const selectedOption = productDropdown.options[productDropdown.selectedIndex];
+      document.getElementById('product_name').innerHTML = selectedOption.getAttribute('data-productName');
+      document.getElementById('rate').innerHTML = selectedOption.getAttribute('data-rate');
+      document.getElementById('qty').innerHTML = selectedOption.getAttribute('data-qty');
+      document.getElementById('final').innerHTML = selectedOption.getAttribute('data-final');
+      }
 
     // START current Date Script
     // Get the current date
