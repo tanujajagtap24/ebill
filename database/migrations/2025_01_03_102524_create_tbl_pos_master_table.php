@@ -18,7 +18,7 @@ class CreateTblPosMasterTable extends Migration
             $table->string('Customer_id');
             $table->string('Payment_Term');
             $table->string('Total');
-            $table->date('Bill_Date');
+            $table->string('Bill_Date');
         });
     }
 
