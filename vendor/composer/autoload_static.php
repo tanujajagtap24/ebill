@@ -529,11 +529,7 @@ class ComposerStaticInitc61ff82cbf0142a401a48a8161e1595a
         'App\\Models\\city' => __DIR__ . '/../..' . '/app/Models/city.php',
         'App\\Models\\customer' => __DIR__ . '/../..' . '/app/Models/customer.php',
         'App\\Models\\group' => __DIR__ . '/../..' . '/app/Models/group.php',
-<<<<<<< HEAD
-        'App\\Models\\pos_child' => __DIR__ . '/../..' . '/app/Models/pos_child.php',
-=======
         'App\\Models\\pos_master' => __DIR__ . '/../..' . '/app/Models/pos_master.php',
->>>>>>> a90afdaaa02e6dea54557b34e447ae8762eb63ad
         'App\\Models\\product' => __DIR__ . '/../..' . '/app/Models/product.php',
         'App\\Models\\product_child' => __DIR__ . '/../..' . '/app/Models/product_child.php',
         'App\\Models\\product_master' => __DIR__ . '/../..' . '/app/Models/product_master.php',
