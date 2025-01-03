@@ -1,0 +1,85 @@
+                        @foreach ($ProductMaster as $master)
+                          @foreach ($ProductChild as $child)
+                            @if ($master->id == $child->product_master_id)
+                              <tr>
+                                <td> {{ $loop->iteration }} </td>
+                                <td> {{ $master->Product_Name }} </td>
+                                <td> {{ $child->Quantity_1 }} </td>
+                                <td> {{ $child->Rate_1 }} </td>
+                                <td> {{ $child->Dis_Value_1 }} </td>
+                                <td> {{ $child->Final_Value_1 }} </td>
+                                <td>
+                                    <a href="" class="btn"> <i class="fas fa-edit text-primary "></i> </a>
+                                    <a href="" class="btn"> <i class="fas fa-trash-alt text-danger "></i> </a>
+                                </td>
+                              </tr>
+                            @endif
+                          @endforeach
+                        @endforeach
+
+
+
+                         {{-- <form class="d-flex">
+                      <input class="form-control me-2" type="search" placeholder="Search Productrs by name or Scan Barcode" aria-label="Search">
+                      <div class="btn btn-sm btn-primary"><a href="#" class="btn btn-sm " style="background-color: blue"> <i class="nav-icon fas fa-plus text-white"></i></a> </div>
+                  </form> --}}
+
+
+                          // const productDropdown = document.getElementById('product_id');
+        // const selectedOption = productDropdown.options[productDropdown.selectedIndex];
+        // document.getElementById('product_name').innerHTML = selectedOption.getAttribute('data-productName');
+        // document.getElementById('rate').innerHTML = selectedOption.getAttribute('data-rate');
+        // document.getElementById('qty').innerHTML = selectedOption.getAttribute('data-qty');
+        // document.getElementById('final').innerHTML = selectedOption.getAttribute('data-final');
+
+
+
+        function AddProductToTable(select) 
+    {
+      const productId = select.value;
+      if(productId){
+        const productName = select.options[select.selectedIndex].dataset.productName;
+        const productPrice = parseFloat(select.options[select.selectedIndex].dataset.rate);
+        const productQty = parseFloat(select.options[select.selectedIndex].dataset.qty);
+        const productFinal = parseFloat(select.options[select.selectedIndex].dataset.final);
+
+        const table = document.getElementById('added_products_table').getElementsByTagName('tbody')[0];
+        const row = table.insertRow();
+
+        row.innerHTML = 
+        <td> ${productName}</td>
+        <td> ${productPrice}</td>
+        <td> ${productQty}</td>
+        <td> ${productFinal}</td>;
+
+      }
+
+    }
+
+
+function AddProductToTable() 
+    {
+      const select = document.getElementById('product_select');
+      const productId = select.value;
+      if(productId){
+        const productName = select.options[select.selectedIndex].getAttribute('data-productName');
+        const productPrice = parseFloat(select.options[select.selectedIndex].getAttribute('data-rate'));
+        const productQty = parseFloat(select.options[select.selectedIndex].getAttribute('data-qty'));
+        const productFinal = parseFloat(select.options[select.selectedIndex].getAttribute('data-final'));
+
+        const table = document.getElementById('added_products_table').querySelector('tbody');
+        const row = document.createElement('tr');
+
+        row.innerHTML = 
+        <td> ${productName}</td>
+        <td> ${productPrice}</td>
+        <td> ${productQty}</td>
+        <td> ${productFinal}</td>
+        ;
+
+        table.appendChild(row);
+
+        select.value = "";
+      }
+
+    }

@@ -17,15 +17,23 @@
             </div>
           </div>
           <div class="card-body bg-light">
+            <form action="">
             <div class="row mx-1 ">
               <div class="col-9 bg-white  ">
                 <div class="card shadow">
-                  <form class="d-flex">
-                      <input class="form-control me-2" type="search" placeholder="Search Productrs by name or Scan Barcode" aria-label="Search">
-                      <div class="btn btn-sm btn-primary"><a href="#" class="btn btn-sm " style="background-color: blue"> <i class="nav-icon fas fa-plus text-white"></i></a> </div>
-                  </form>
+                  <select name="product_select" id="product_select" class="form-control" onchange="AddProductToTable()" required>
+                    <option value="">Select</option>
+                    @foreach ($ProductMaster as $master)
+                      @foreach ($ProductChild as $child)
+                        @if ($master->id == $child->product_master_id)
+                      <option value="{{ $master->id }}" data-productName="{{ $master->Product_Name }}" data-rate="{{ $child->Rate_1 }}" data-qty="{{ $child->Quantity_1 }}" data-final="{{ $child->Final_Value_1 }}" > {{ $master->Product_Name }} </option>
+                      @endif
+                      @endforeach
+                    @endforeach
+                  </select>
+                 
 
-                    <table class="table table-hover text-center">
+                    <table class="table table-hover text-center" id="added_products_table">
                       <thead style="background-color: rgb(189, 217, 248)">
                         <tr>
                           <th>No.</th>
@@ -38,24 +46,13 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($ProductMaster as $master)
-                          @foreach ($ProductChild as $child)
-                            @if ($master->id == $child->product_master_id)
-                              <tr>
-                                <td> {{ $loop->iteration }} </td>
-                                <td> {{ $master->Product_Name }} </td>
-                                <td> {{ $child->Quantity_1 }} </td>
-                                <td> {{ $child->Rate_1 }} </td>
-                                <td> {{ $child->Dis_Value_1 }} </td>
-                                <td> {{ $child->Final_Value_1 }} </td>
-                                <td>
-                                    <a href="" class="btn"> <i class="fas fa-edit text-primary "></i> </a>
-                                    <a href="" class="btn"> <i class="fas fa-trash-alt text-danger "></i> </a>
-                                </td>
-                              </tr>
-                            @endif
-                          @endforeach
-                        @endforeach
+                        <tr>
+                          <td><span id="product_name"></span></td>
+                          <td><span id="rate"></span></td>
+                          <td><span id="qty"></span></td>
+                          <td><span id="final"></span></td>
+                        </tr>
+
                       </tbody>
                     </table>
                 </div>
@@ -110,6 +107,7 @@
                 </div>
               </div>
             </div>
+            </form>
           </div>
           <div class="card-footer fixed-bottom text-center">
               <div class="row">
@@ -124,10 +122,10 @@
                   <div class="col-lg-2 bg-info ">
                       Total Quantiy : 11
                   </div>
-                  <div class="col-lg-2 bg-primary">
+                  <div class="col-lg-2 bg-warning">
                       Total MRP : 500.00
                   </div>
-                  <div class="col-lg-2 bg-warning">
+                  <div class="col-lg-2 bg-primary">
                       Total Dis : -545.00
 
                   </div>
@@ -144,12 +142,24 @@
 
 <script>
     // Customer Details Script
-    function fillCustomerDetails() {
+    function fillCustomerDetails() 
+    {
         const customerDropdown = document.getElementById('cust_id');
         const selectedOption = customerDropdown.options[customerDropdown.selectedIndex];
         document.getElementById('mob_num').innerHTML = selectedOption.getAttribute('data-mobile');
         document.getElementById('city').innerHTML = selectedOption.getAttribute('data-city');
     }
+
+      // Product Details Script
+      function AddProductToTable()
+      {
+      const productDropdown = document.getElementById('product_select');
+      const selectedOption = productDropdown.options[productDropdown.selectedIndex];
+      document.getElementById('product_name').innerHTML = selectedOption.getAttribute('data-productName');
+      document.getElementById('rate').innerHTML = selectedOption.getAttribute('data-rate');
+      document.getElementById('qty').innerHTML = selectedOption.getAttribute('data-qty');
+      document.getElementById('final').innerHTML = selectedOption.getAttribute('data-final');
+      }
 
     // START current Date Script
     // Get the current date
