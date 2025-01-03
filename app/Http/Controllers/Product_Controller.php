@@ -117,7 +117,6 @@ class Product_Controller extends Controller
 
   function Update(Request $request)
   {
-    {
       $updateMaster = product_master::find($request->product_id);
 
       $updateMaster->Product_Name = $request->product_name;
@@ -176,9 +175,5 @@ class Product_Controller extends Controller
       $updateChild->save();
       return redirect('/admin/product/list')->with("success", "Product Updated Successfully!");
   
-    }
-    $updateData->save();
-
-    return redirect('/admin/product/list')->with("success", "Product Updated Successfully!");
   }
 }
