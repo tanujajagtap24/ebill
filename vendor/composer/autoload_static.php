@@ -503,6 +503,7 @@ class ComposerStaticInitc61ff82cbf0142a401a48a8161e1595a
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Bill_Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Bill_Controller.php',
         'App\\Http\\Controllers\\Brand_Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Brand_Controller.php',
         'App\\Http\\Controllers\\Cart_Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Cart_Controller.php',
         'App\\Http\\Controllers\\Category_Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Category_Controller.php',
@@ -524,6 +525,7 @@ class ComposerStaticInitc61ff82cbf0142a401a48a8161e1595a
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\bill_list' => __DIR__ . '/../..' . '/app/Models/bill_list.php',
         'App\\Models\\brand' => __DIR__ . '/../..' . '/app/Models/brand.php',
         'App\\Models\\cart' => __DIR__ . '/../..' . '/app/Models/cart.php',
         'App\\Models\\category' => __DIR__ . '/../..' . '/app/Models/category.php',
