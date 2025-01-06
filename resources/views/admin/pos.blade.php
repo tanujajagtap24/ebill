@@ -112,7 +112,7 @@
                     <div>Remaining Amt: &#8377; 0</div>
                   </div>
                   <label for=""> Bill Date: </label>
-                  <input type="text" name="bill_date" id="bill_date" value="{{ now()->format('m/d/Y') }}">
+                  <input type="text" name="bill_date" id="bill_date" value="{{ now()->format('d/m/Y') }}">
                 </div>
                 <div class="card p-2 shadow">
                   <label for=""> Bill Details: </label>
