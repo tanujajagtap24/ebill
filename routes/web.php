@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backcontroller;
+use App\Http\Controllers\Bill_Controller;
 use App\Http\Controllers\Brand_Controller;
 use App\Http\Controllers\Cart_Controller;
 use App\Http\Controllers\Category_Controller;
@@ -34,6 +35,9 @@ Route::get('/admin-1', function () {
 Route::get('/', function () {
     return view('admin\dashboard');
 });
+
+Route::get('/admin/bill/list', [Bill_Controller::class, 'List']);
+Route::get('/admin/bill/view/{id}', [Bill_Controller::class, 'View']);
 
 
 Route::post('/admin/cart/store', [Cart_Controller::class, 'Store']);

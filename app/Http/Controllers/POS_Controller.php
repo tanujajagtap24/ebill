@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\pos_child;
 use App\Models\pos_master;
 use App\Models\cart;
+use App\Models\bill_list;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -22,11 +23,19 @@ class POS_Controller extends Controller
         // return $addposmaster;
         $addposmaster->save();
 
+        $addBill = new bill_list();
+        $addBill->pos_master_id =  $addposmaster->id;
+        $addBill->customer_id = $addposmaster->Customer_id;
+        $addBill->bill_date = $addposmaster->Bill_Date;
+        $addBill->total = $addposmaster->Total;
+        $addBill->save();
+
         $cartData = cart::all();
         foreach($cartData as $data){
         $addposchild = new pos_child();
         $addposchild->pos_master_id=$addposmaster->id;
         $addposchild->Product_id= $data->Product_id;
+        $addposchild->Product_Name= $data->Product_Name;
         $addposchild->Sale_Price=$data->Sale_Price;
         $addposchild->Quantity=$data->Quantiy;
         $addposchild->Total=$data->Total;

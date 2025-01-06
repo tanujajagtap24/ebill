@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTblBillListTable extends Migration
+class CreateTblPosChildTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateTblBillListTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_bill_list', function (Blueprint $table) {
+        Schema::create('tbl_pos_child', function (Blueprint $table) {
             $table->id();
             $table->string('pos_master_id');
+            $table->string('Product_id');
+            $table->string('Product_Name');
+            $table->string('Sale_Price');
+            $table->string('Quantity');
+            $table->string('Total');
         });
     }
 
@@ -26,6 +31,6 @@ class CreateTblBillListTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_bill_list');
+        Schema::dropIfExists('tbl_pos_child');
     }
 }
