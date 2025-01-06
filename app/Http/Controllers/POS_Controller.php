@@ -22,16 +22,17 @@ class POS_Controller extends Controller
         // return $addposmaster;
         $addposmaster->save();
 
+        $cartData = cart::all();
+        foreach($cartData as $data){
         $addposchild = new pos_child();
         $addposchild->pos_master_id=$addposmaster->id;
-        $addposchild->Product_id=$product_id;
-        $addposchild->Sale_Price=$request->sale;
-        $addposchild->Quantity=$request->qty;
-        $addposchild->Total=$request->total;
+        $addposchild->Product_id= $data->Product_id;
+        $addposchild->Sale_Price=$data->Sale_Price;
+        $addposchild->Quantity=$data->Quantiy;
+        $addposchild->Total=$data->Total;
         $addposchild->save();
-        return $addposchild;
-
-        //  return redirect('/admin/bill')->with("success", "Product Saved Successfully!");
-
+        }
+        cart::truncate();
+         return redirect('/admin/pos');
     }
 }

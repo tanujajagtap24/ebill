@@ -88,8 +88,8 @@
                   </div>
                   <div class="">
                     <select name="cust_id" id="cust_id" class="form-control" onchange="fillCustomerDetails()" required>
+                      <option value="">Select Customer</option>
                       @foreach ($customerData as $customer)
-                       <option value="">Select</option>
                         <option value="{{ $customer->id }}" data-mobile="{{ $customer->Mobile_Number }}" data-city="{{ $customer->City }}"> {{ $customer->Customer_Name }} </option>
                       @endforeach
                     </select>
