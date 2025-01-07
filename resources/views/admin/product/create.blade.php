@@ -208,6 +208,8 @@
     var Rate_1 = parseFloat(document.getElementById('rate_1').value);
     var quantity_1 = parseFloat(document.getElementById('qty_1').value);
 
+
+
     // Calculate Total
     var Total_1 = Rate_1 * quantity_1;
     document.getElementById('total_1').value = Total_1;
@@ -215,11 +217,12 @@
     var percent_1 = parseFloat(document.getElementById('dis_percent_1').value);
 
     // Calculate Discount Value
-    var discount_value_1 = (percent_1 / 100) * Total_1;
-    document.getElementById('dis_value_1').value = discount_value_1;
+    var discount_value_1 = (percent_1 / 100) * Rate_1;
+    var valueAfterDiscout = Rate_1 - discount_value_1;
+    document.getElementById('dis_value_1').value = valueAfterDiscout;
 
     // Value After Applying Discount
-    var amount_1 = Total_1 - discount_value_1;
+    var amount_1 = valueAfterDiscout * quantity_1;
 
     // Calculate Tax Value
     var tax_per = parseFloat(document.getElementById('tax_percent').value);
@@ -227,6 +230,7 @@
 
     // Calculate Final Amount
     var final_1 = amount_1 + tax_value_1;
+    // var final_1 = valueAfterDiscout * quantity_1;
     document.getElementById('fin_value_1').value = final_1;
   }
 

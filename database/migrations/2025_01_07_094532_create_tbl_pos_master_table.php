@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTblPosChildTable extends Migration
+class CreateTblPosMasterTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateTblPosChildTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_pos_child', function (Blueprint $table) {
+        Schema::create('tbl_pos_master', function (Blueprint $table) {
             $table->id();
-            $table->string('pos_master_id');
-            $table->string('Product_id');
-            $table->string('Product_Name');
-            $table->string('Sale_Price');
+            $table->string('Customer_id');
+            $table->string('Payment_Term');
             $table->string('Quantity');
             $table->string('Total');
+            $table->string('Final_Amount');
+            $table->string('Bill_Date');
         });
     }
 
@@ -31,6 +31,6 @@ class CreateTblPosChildTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_pos_child');
+        Schema::dropIfExists('tbl_pos_master');
     }
 }

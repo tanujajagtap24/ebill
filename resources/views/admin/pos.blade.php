@@ -8,11 +8,10 @@
             <div class="d-flex justify-content-between">
               <div>
                 <a href="#" class="btn btn-primary"> <i class="nav-icon fas fa-circle"></i> POS1 </a>
-                <a href="#" class="btn btn-light"> <i class="nav-icon fas fa-plus"></i> </a>
               </div>
               <div>
                   <a href="/" class="btn btn-danger rounded-pill"> <i class="nav-icon fas fa-circle"></i> Dashboard </a>
-                  <a href="#" class="btn btn-primary rounded-pill"> <i class="nav-icon fas fa-circle"></i> POS Bills List </a>
+                  <a href="/admin/bill/list" class="btn btn-primary rounded-pill"> <i class="nav-icon fas fa-circle"></i> POS Bills List </a>
               </div>
             </div>
           </div>
@@ -66,11 +65,11 @@
                               {{-- <td> <input type="number" name="qty" id="qty" value="{{ $data->Quantiy }}" min="1" data-id ="{{ $data->id }}" class="quantity-input"> </td> --}}
                               <td> {{ $data->MRP }} </td>
                               {{-- <td> <span id="sale"> {{ $data->Sale_Price }} </span></td> --}}
-                              <td> <input type="" name="sale" id="sale" value="{{ $data->Sale_Price }}"> </td>
-                              {{-- <td> {{ $data->Sale_Price }} </td> --}}
+                              {{-- <td> <input type="" name="sale" id="sale" value="{{ $data->Sale_Price }}"> </td> --}}
+                              <td> {{ $data->Sale_Price }} </td>
                               {{-- <td> <span id="total"> {{ $data->Total }} </span></td> --}}
-                              <td> <input type="" name="total" id="total" value="{{ $data->Total }}" > </td>
-                              {{-- <td> {{ $data->Total }} </td> --}}
+                              {{-- <td> <input type="" name="total" id="total" value="{{ $data->Total }}" > </td> --}}
+                              <td> {{ $data->Total }} </td>
                               {{-- <td> {{ $data->Total }} </td> --}}
 
                               <td> <a href="/admin/cart/delete/{{ $data->id }}" class="btn"> <i class="fas fa-trash-alt text-danger "></i> </a> </td>

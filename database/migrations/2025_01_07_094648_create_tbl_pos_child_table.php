@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTblCartTable extends Migration
+class CreateTblPosChildTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateTblCartTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_cart', function (Blueprint $table) {
+        Schema::create('tbl_pos_child', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('Product_id');
+            $table->string('pos_master_id');
+            $table->string('Product_id');
             $table->string('Product_Name');
-            $table->string('Quantiy');
             $table->string('MRP');
             $table->string('Sale_Price');
+            $table->string('Quantity');
             $table->string('Total');
         });
     }
@@ -31,6 +32,6 @@ class CreateTblCartTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_cart');
+        Schema::dropIfExists('tbl_pos_child');
     }
 }

@@ -15,7 +15,7 @@ class Cart_Controller extends Controller
   function POS(Request $request)
   {
 
-    $cartData = cart::all();
+     $cartData = cart::all();
      $ProductMaster = product_master::all();
      $ProductChild = product_child::all();
      $total = cart::sum('total');
@@ -34,8 +34,9 @@ class Cart_Controller extends Controller
       $addpos->Product_Name = $ProductMaster->Product_Name;
       $addpos->Quantiy = $ProductChild->Quantity_1;
       $addpos->MRP = $ProductChild->Rate_1;
+      $addpos->Total = $ProductChild->Total_1;
       $addpos->Sale_Price = $ProductChild->Dis_Value_1;
-      $addpos->Total = $ProductChild->Final_Value_1;
+      $addpos->FinalAmount = $ProductChild->Final_Value_1;
       $addpos->save();
       return redirect('/admin/pos');
    }

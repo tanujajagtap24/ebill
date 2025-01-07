@@ -83,3 +83,40 @@ function AddProductToTable()
       }
 
     }
+
+
+
+    साई मार्ट वनदेवशेरी, शिंगनापुर रोड, फलटण.
+Mob No:9284700921
+GST NO. 27AKKPR6504L1ZN
+Bill No. A-40379
+27/12/2024 12:56 PM
+Bill To: Cash Sale
+#Product Name
+Qty
+MRP
+Rate
+Total
+1
+खडीसाखर 125
+1
+15
+7.50
+7.50
+2 खडीसाखर (M)
+1
+9
+4.50
+4.50
+3 आरासा पी मो
+1
+105
+105
+105
+Total Qty:: 3
+Total Bill: . 117
+आपली बचत: ₹. 12
+धन्यवाद परत भेट द्या.
+Software by BillerPOS, Baramati - 9595775123
+Print
+Close

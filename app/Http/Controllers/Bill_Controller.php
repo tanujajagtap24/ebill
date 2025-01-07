@@ -21,17 +21,17 @@ class Bill_Controller extends Controller
 
     function View(Request $request, $id)
     {
-        $billData = bill_list::find($id);
+        $viewbill = bill_list::find($id);
         // return $billData;
-        $posMasterData = pos_master::find($billData->pos_master_id);
+        $viewPosMaster = pos_master::find($viewbill->pos_master_id);
         // return $posMasterData;
-        $posChildData = pos_child::where('pos_master_id', $posMasterData->id)->get();
+        $viewPosChild = pos_child::where('pos_master_id', $viewPosMaster->id)->get();
         // return $posChildData;
 
-        $customerData = customer::find($billData->customer_id);
+        $viewCustomer = customer::find($viewbill->customer_id);
         // return $customerData;
 // 
-        return view('admin\bill\view', compact('billData', 'customerData', 'posMasterData', 'posChildData'));
+        return view('admin\bill\view', compact('viewbill', 'viewCustomer', 'viewPosMaster', 'viewPosChild'));
 
     }
 }
