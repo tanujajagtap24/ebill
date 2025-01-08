@@ -37,7 +37,10 @@ Route::get('/', function () {
 });
 
 Route::get('/admin/bill/list', [Bill_Controller::class, 'List']);
-Route::get('/admin/bill/view/{id}', [Bill_Controller::class, 'View']);
+Route::get('/admin/bill/view', [Bill_Controller::class, 'View']);
+Route::get('/admin/bill/edit/{id}', [Bill_Controller::class, 'Edit']);
+Route::post('/admin/bill/update', [Bill_Controller::class, 'Update']);
+
 
 
 Route::post('/admin/cart/store', [Cart_Controller::class, 'Store']);
@@ -45,7 +48,6 @@ Route::get('/admin/cart/delete/{id}', [Cart_Controller::class, 'Destroy']);
 Route::get('/admin/pos', [Cart_Controller::class, 'POS']);
 
 Route::post('/admin/pos/store', [POS_Controller::class, 'Store']);
-
 
 //category CRUD (Admin)
 Route::get('/admin/category/create', [Category_Controller::class, 'Create']);

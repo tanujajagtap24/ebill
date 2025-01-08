@@ -18,9 +18,11 @@ class Cart_Controller extends Controller
      $cartData = cart::all();
      $ProductMaster = product_master::all();
      $ProductChild = product_child::all();
-     $total = cart::sum('total');
+     $total = cart::sum('FinalAmount');
      $customerData = customer::all();
      return view('admin\pos', compact('customerData', 'ProductMaster', 'ProductChild', 'total', 'cartData'));
+
+     
   }
 
     function Store(Request $request)

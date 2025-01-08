@@ -9,6 +9,11 @@
                 <div class="row mb-2">
                     <div class="col-12">
                         <h1 class="text-center"> <strong> Bill List Management </strong> </h1>
+                        @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     </div>
 
                 </div>
@@ -48,8 +53,10 @@
                                                     <td> {{ $customer->Mobile_Number }} </td>
                                                     <td> {{ $customer->City }} </td>
                                                     <td> {{ $customer->Pincode }} </td>
-                                                    <td> <a href="/admin/bill/view/{{$bill->id}}"><i
-                                                      class="nav-icon fas fa-eye"></i></a>
+                                                    <td> 
+                                                        <a class="btn btn-primary" href="/admin/bill/view?id={{$bill->id}}"><i class="nav-icon fas fa-eye"></i></a>
+                                                        <a class="btn btn-secondary" href="/admin/bill/edit/{{$bill->id}}"><i class="nav-icon fas fa-edit"></i></a>
+                                                    </td>
                                                       
                                                 <?php
                                                 $count++;

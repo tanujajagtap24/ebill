@@ -14,6 +14,7 @@ class POS_Controller extends Controller
     {
         $total = cart::sum('total');
         $Qty = cart::count('id');
+        $Final = cart::sum('FinalAmount');
         $product_id = $request->p_id;
         $cartData = cart::where('Product_id', $product_id)->get();
         $addposmaster = new pos_master();
@@ -21,7 +22,7 @@ class POS_Controller extends Controller
         $addposmaster->Payment_Term=$request->pay_term;
         $addposmaster->Quantity = $Qty;
         $addposmaster->Total=$total;
-        $addposmaster->Final_Amount=$request->total_amt;
+        $addposmaster->Final_Amount=$Final;
         $addposmaster->Bill_Date=$request->bill_date;
         // return $addposmaster;
         $addposmaster->save();
@@ -42,10 +43,12 @@ class POS_Controller extends Controller
         $addposchild->MRP=$data->MRP;
         $addposchild->Sale_Price=$data->Sale_Price;
         $addposchild->Quantity=$data->Quantiy;
-        $addposchild->Total=$data->Total;
+        $addposchild->Total=$data->FinalAmount;
         $addposchild->save();
         }
         cart::truncate();
-         return redirect('/admin/pos')->with("success", "Bill Saved Successfully!");
+         return redirect('/admin/bill/list')->with('success', 'Bill Saved Successfully');
     }
 }
+
+

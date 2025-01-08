@@ -7,7 +7,7 @@
           <div class="card-header">
             <div class="d-flex justify-content-between">
               <div>
-                <a href="#" class="btn btn-primary"> <i class="nav-icon fas fa-circle"></i> POS1 </a>
+                <a href="#" class="btn btn-primary"> <i class="nav-icon fas fa-circle"></i> Edit </a>
               </div>
               <div>
                   <a href="/" class="btn btn-danger rounded-pill"> <i class="nav-icon fas fa-circle"></i> Dashboard </a>
@@ -30,8 +30,6 @@
                         @if ($master->id == $child->product_master_id)
                       <option value="{{ $master->id }}" data-productName="{{ $master->Product_Name }}" data-rate="{{ $child->Rate_1 }}" data-qty="{{ $child->Quantity_1 }}" data-sale="{{ $child->Dis_Value_1 }}" data-final="{{ $child->Final_Value_1 }}" > {{ $master->Product_Name }} </option>
                       @endif
-
-
                       @endforeach 
                     @endforeach
                   </select>
@@ -59,19 +57,15 @@
                         <td> <input type="hidden" class="text-center" name="p_id" id="p_id" value="{{ $data->Product_id }}"> </td>
                             <tr>
                               <td> {{ $loop->iteration }} </td>
-                              {{-- <td> {{ $data->id }} </td> --}}
-                              <td> <span id="name">{{ $data->Product_Name }} </span> </td>
-                              <td> <input type="number" class="text-center" name="qty" id="qty" min="1" value="{{ $data->Quantiy }}" onchange="Price()"> </td>
-                              {{-- <td> <input type="number" name="qty" id="qty" value="{{ $data->Quantiy }}" min="1" data-id ="{{ $data->id }}" class="quantity-input"> </td> --}}
-                              <td> {{ $data->MRP }} </td>
-                              {{-- <td> <span id="sale"> {{ $data->Sale_Price }} </span></td> --}}
-                              {{-- <td> <input type="" name="sale" id="sale" value="{{ $data->Sale_Price }}"> </td> --}}
-                              <td> {{ $data->Sale_Price }} </td>
-                              {{-- <td> <span id="total"> {{ $data->Total }} </span></td> --}}
-                              {{-- <td> <input type="" name="total" id="total" value="{{ $data->Total }}" > </td> --}}
-                              <td> {{ $data->FinalAmount }} </td>
-                              {{-- <td> {{ $data->Total }} </td> --}}
-
+                              {{-- <td> <span id="name">{{ $data->Product_Name }} </span> </td> --}}
+                              <td> <input type="text" class="form-control text-center" name="name" id="name" value="{{ $data->Product_Name }}"> </td>
+                              <td> <input type="number" class="form-control text-center" name="qty" id="qty" min="1" value="{{ $data->Quantiy }}" > </td>
+                              <td> <input type="text" class="form-control text-center" name="mrp" id="mrp" value="{{ $data->MRP }}" > </td>
+                              <td> <input type="text" class="form-control text-center" name="sale" id="sale" value="{{ $data->Sale_Price }}"> </td>
+                              <td> <input type="text" class="form-control text-center" name="total" id="total" value="{{ $data->FinalAmount }}" > </td>
+                              {{-- <td> {{ $data->MRP }} </td> --}}
+                              {{-- <td> {{ $data->Sale_Price }} </td> --}}
+                              {{-- <td> {{ $data->FinalAmount }} </td> --}}
                               <td> <a href="/admin/cart/delete/{{ $data->id }}" class="btn"> <i class="fas fa-trash-alt text-danger "></i> </a> </td>
                             </tr>
                         @endforeach
@@ -87,14 +81,14 @@
                   </div>
                   <div class="">
                     <select name="cust_id" id="cust_id" class="form-control" onchange="fillCustomerDetails()" required>
-                      <option value="">Select Customer</option>
+                      <option value="{{$editCustomer->Customer_Name}}">{{$editCustomer->Customer_Name}}</option>
                       @foreach ($customerData as $customer)
                         <option value="{{ $customer->id }}" data-mobile="{{ $customer->Mobile_Number }}" data-city="{{ $customer->City }}"> {{ $customer->Customer_Name }} </option>
                       @endforeach
                     </select>
                     <div >
-                      <label>Mobile Number :</label> <span id="mob_num"></span> <br>
-                      <label>Address :</label> <span id="city"></span> <br>
+                      <label>Mobile Number :</label> <span id="mob_num">{{$editCustomer->Mobile_Number}}</span> <br>
+                      <label>Address :</label> <span id="city">{{$editCustomer->City}}</span> <br>
                       {{-- <label>Mobile Number:</label> <input type="text" name="mob_num" id="mob_num" readonly class="form-control"> --}}
                       {{-- <label> Address : </label><input type="text" name="city" id="city" readonly class="form-control"> --}}
                     </div>
@@ -102,6 +96,7 @@
                   <div class="">
                     <label for="">Payment Term</label>
                     <select name="pay_term" id="pay_term" class="form-control">
+                      <option value="{{$editPOSmaster->Payment_Term}}">{{$editPOSmaster->Payment_Term}}</option>
                       <option value="Cash">Cash</option>
                       <option value="Online">Online</option>
                     </select>
@@ -113,7 +108,7 @@
                 <div class="card p-2 shadow">
                   <label for=""> Bill Details: </label>
                   <div class="d-flex justify-content-between bg-danger align-items-center ">
-                    <span>Total Amount: </span> <h1> &#8377; {{$total}}</h1>
+                    <span>Total Amount: </span> <h1> &#8377; {{$editPOSmaster->Final_Amount}}</h1>
                     
                     {{-- <p id="total_amt"> 0 </p> --}}
                   </div>

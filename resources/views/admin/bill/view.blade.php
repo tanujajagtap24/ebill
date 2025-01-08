@@ -67,10 +67,22 @@
                         </tr>
                     @endforeach
 
-                    <tr style="border-top: 2px dashed black; border-bottom:2px solid black" >
+                    <tr style="border-top: 2px dashed black;" >
                       <td colspan="3"> <center> Total Qty: {{$viewPosMaster->Quantity}}</center> </td>
-                      <th colspan="3">  Total Bill: {{$viewPosMaster->Total}}  </th>
+                      <th colspan="3">  Total Bill: {{$viewPosMaster->Final_Amount}}  </th>
                     </tr>
+
+                    <tr style="border-top: 2px solid black;" >
+                      <th colspan="6" style="padding-top:5px; text-align:center"> 
+                          आपली बचत:  &#8377;.  {{$saving}}
+                      </th>
+                    </tr>
+
+                    <tr>
+                      <th colspan="6" style="padding-top:5px; text-align:center"> <h1> धन्यवाद परत भेट द्या. </h1></th>
+                    </tr>
+
+
                 </tbody>
               </table>
 
