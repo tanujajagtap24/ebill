@@ -49,13 +49,9 @@ class Bill_Controller extends Controller
        $cartData = cart::all();
        cart::truncate();
     return view('admin\edit_pos', compact('editbill', 'editPOSmaster', 'editPOSchild', 'editCustomer', 'customerData', 'ProductMaster', 'ProductChild', 'cartData'));
-
-    // $cartData = cart::all();
-
-    // $total = cart::sum('FinalAmount');
-    // $customerData = customer::all();
-    // return view('admin\pos', compact('customerData', 'ProductMaster', 'ProductChild', 'total', 'cartData'));
     }
+
+
 
     function View(Request $request)
     {
