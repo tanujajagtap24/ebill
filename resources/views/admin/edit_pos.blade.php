@@ -20,7 +20,7 @@
 
               <div class="col-9 bg-white  ">
                 <div class="card shadow">
-                  <form action="/admin/cart/store" method="POST">
+                  <form action="/admin/CartStore" method="POST">
                     @csrf
                     <div class="d-flex justify-content-between">
                   <select name="product_select" id="product_select" class="form-control"  required>
@@ -38,8 +38,12 @@
                 </div>
                   </form>
 
-                  <form action="/admin/pos/store" method="POST">
+                  <form action="/admin/bill/update" method="POST">
                     @csrf
+
+                    <input type="hidden" name="bill_id" id="bill_id" value="{{$editbill->id}}">
+                    <input type="hidden" name="p_master_id" id="p_master_id" value="{{$editPOSmaster->id}}">
+                    {{-- <input type="text" name="p_child_id" id="p_child_id" value="{{$editPOSchild->id}}"> --}}
                     <table class="table table-hover text-center" id="added_products_table">
                       <thead style="background-color: rgb(189, 217, 248)">
                         <tr>
@@ -59,7 +63,7 @@
                               <td> {{ $loop->iteration }} </td>
                               {{-- <td> <span id="name">{{ $data->Product_Name }} </span> </td> --}}
                               <td> <input type="text" class="form-control text-center" name="name" id="name" value="{{ $data->Product_Name }}"> </td>
-                              <td> <input type="number" class="form-control text-center" name="qty" id="qty" min="1" value="{{ $data->Quantiy }}" > </td>
+                              <td> <input type="number" class="form-control text-center" name="qty" id="qty" min="1" value="{{ $data->Quantiy }}" onchange="Price()"> </td>
                               <td> <input type="text" class="form-control text-center" name="mrp" id="mrp" value="{{ $data->MRP }}" > </td>
                               <td> <input type="text" class="form-control text-center" name="sale" id="sale" value="{{ $data->Sale_Price }}"> </td>
                               <td> <input type="text" class="form-control text-center" name="total" id="total" value="{{ $data->FinalAmount }}" > </td>
@@ -81,7 +85,7 @@
                   </div>
                   <div class="">
                     <select name="cust_id" id="cust_id" class="form-control" onchange="fillCustomerDetails()" required>
-                      <option value="{{$editCustomer->Customer_Name}}">{{$editCustomer->Customer_Name}}</option>
+                      <option value="{{$editCustomer->id}}">{{$editCustomer->Customer_Name}}</option>
                       @foreach ($customerData as $customer)
                         <option value="{{ $customer->id }}" data-mobile="{{ $customer->Mobile_Number }}" data-city="{{ $customer->City }}"> {{ $customer->Customer_Name }} </option>
                       @endforeach
@@ -115,7 +119,7 @@
                 </div>
                 <div class="card p-2 shadow">
                   <div class="d-flex justify-content-around align-items-center">
-                    <button type="submit" class="btn btn-primary">Save Bill</button>
+                    <button type="submit" class="btn btn-primary">Update Bill</button>
                     <button type="Reset" class="btn btn-Success"> Clear</button>
                   </div>
                 </div>
@@ -156,71 +160,71 @@
 @endsection
 
 <script>
-    // Customer Details Script
-    function fillCustomerDetails() 
-    {
-        const customerDropdown = document.getElementById('cust_id');
-        const selectedOption = customerDropdown.options[customerDropdown.selectedIndex];
-        document.getElementById('mob_num').innerHTML = selectedOption.getAttribute('data-mobile');
-        document.getElementById('city').innerHTML = selectedOption.getAttribute('data-city');
-    }
+  // Customer Details Script
+  function fillCustomerDetails() 
+  {
+      const customerDropdown = document.getElementById('cust_id');
+      const selectedOption = customerDropdown.options[customerDropdown.selectedIndex];
+      document.getElementById('mob_num').innerHTML = selectedOption.getAttribute('data-mobile');
+      document.getElementById('city').innerHTML = selectedOption.getAttribute('data-city');
+  }
 
-    // Total 
-    function Price()
-    {
-      var Quantity = parseInt(document.getElementById('qty').value);
-      var Sale = parseInt(document.getElementById('sale').innerHTML);
+  // Total 
+  function Price()
+  {
+    var Quantity = parseInt(document.getElementById('qty').value);
+    var Sale = parseInt(document.getElementById('sale').innerHTML);
 
-      var Total = Quantity * Sale;
-      document.getElementById('total').innerHTML = Total;
+    var Total = Quantity * Sale;
+    document.getElementById('total').innerHTML = Total;
 
-    }
+  }
 
-      // Product Details Script
-      // function AddProductToTable()
-      // {
-      // const productDropdown = document.getElementById('product_select');
-      // const selectedOption = productDropdown.options[productDropdown.selectedIndex];
-      // document.getElementById('product_name').innerHTML = selectedOption.getAttribute('data-productName');
-      // document.getElementById('rate').innerHTML = selectedOption.getAttribute('data-rate');
-      // document.getElementById('qty').innerHTML = selectedOption.getAttribute('data-qty');
-      // document.getElementById('sale').innerHTML = selectedOption.getAttribute('data-sale');
-      // document.getElementById('final').innerHTML = selectedOption.getAttribute('data-final');
-      // }
+    // Product Details Script
+    // function AddProductToTable()
+    // {
+    // const productDropdown = document.getElementById('product_select');
+    // const selectedOption = productDropdown.options[productDropdown.selectedIndex];
+    // document.getElementById('product_name').innerHTML = selectedOption.getAttribute('data-productName');
+    // document.getElementById('rate').innerHTML = selectedOption.getAttribute('data-rate');
+    // document.getElementById('qty').innerHTML = selectedOption.getAttribute('data-qty');
+    // document.getElementById('sale').innerHTML = selectedOption.getAttribute('data-sale');
+    // document.getElementById('final').innerHTML = selectedOption.getAttribute('data-final');
+    // }
 
-    // START current Date Script
-    // Get the current date
-    const currentDate = new Date();
+  // START current Date Script
+  // Get the current date
+  const currentDate = new Date();
 
-    // Format the date
-    const options = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    };
-    const formattedDate = currentDate.toLocaleDateString('en-US', options);
+  // Format the date
+  const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+  };
+  const formattedDate = currentDate.toLocaleDateString('en-US', options);
 
-    // Display the date in the HTML
-    document.getElementById('current-date').innerText = formattedDate;
-    // END current Date Script
-
-
-    // START Qunatity Buttons Script
-    var x = 0;
-
-    document.getElementById('output-area').innerHTML = x;
-
-    function button1() {
-        document.getElementById('output-area').innerHTML = ++x;
-    }
-
-    function button2() {
-        document.getElementById('output-area').innerHTML = --x;
-    }
-    // END Qunatity Buttons Script
+  // Display the date in the HTML
+  document.getElementById('current-date').innerText = formattedDate;
+  // END current Date Script
 
 
-    // Total Amount
+  // START Qunatity Buttons Script
+  var x = 0;
+
+  document.getElementById('output-area').innerHTML = x;
+
+  function button1() {
+      document.getElementById('output-area').innerHTML = ++x;
+  }
+
+  function button2() {
+      document.getElementById('output-area').innerHTML = --x;
+  }
+  // END Qunatity Buttons Script
+
+
+  // Total Amount
 </script>
 
 

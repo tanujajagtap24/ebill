@@ -55,7 +55,7 @@
                                                     <td> {{ $customer->Pincode }} </td>
                                                     <td> 
                                                         <a class="btn btn-primary" href="/admin/bill/view?id={{$bill->id}}"><i class="nav-icon fas fa-eye"></i></a>
-                                                        <a class="btn btn-secondary" href="/admin/bill/edit/{{$bill->id}}"><i class="nav-icon fas fa-edit"></i></a>
+                                                        <a class="btn btn-secondary" href="/admin/bill/edit?id={{$bill->id}}"><i class="nav-icon fas fa-edit"></i></a>
                                                     </td>
                                                       
                                                 <?php

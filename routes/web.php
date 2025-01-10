@@ -38,8 +38,12 @@ Route::get('/', function () {
 
 Route::get('/admin/bill/list', [Bill_Controller::class, 'List']);
 Route::get('/admin/bill/view', [Bill_Controller::class, 'View']);
-Route::get('/admin/bill/edit/{id}', [Bill_Controller::class, 'Edit']);
+
+Route::get('/admin/bill/edit', [Bill_Controller::class, 'Edit']);
 Route::post('/admin/bill/update', [Bill_Controller::class, 'Update']);
+
+Route::post('/admin/CartStore', [Bill_Controller::class, 'CartStore']);
+
 
 
 

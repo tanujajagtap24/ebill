@@ -42,7 +42,7 @@ class Cart_Controller extends Controller
       $addpos->save();
       return redirect('/admin/pos');
    }
-   
+
    function Destroy(Request $request, $id)
      {
        $deleteData = cart::find($id);
